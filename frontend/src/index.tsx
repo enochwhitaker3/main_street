@@ -21,7 +21,7 @@ const MyElement: React.FC = () => {
 
   return (
     <div>
-      <h1>HEELLOOOO</h1>
+      <h1>Main Street Playhouse</h1>
       <p>{apiResponse}</p>
     </div>
   );
