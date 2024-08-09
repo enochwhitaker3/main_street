@@ -1,28 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
-
-const restEndpoint = "http://localhost:5000/test-db";
-
-const callRestApi = async () => {
-  const response = await fetch(restEndpoint);
-  const jsonResponse = await response.json();
-  console.log(jsonResponse);
-  return JSON.stringify(jsonResponse);
-};
-
+import PlaysList from './components/PlaysList';
 
 const MyElement: React.FC = () => {
-  const [apiResponse, setApiResponse] = useState("*** now loading ***");
-
-  useEffect(() => {
-    callRestApi().then(
-      result => setApiResponse(result));
-  }, []);
-
   return (
     <div>
       <h1>Main Street Playhouse</h1>
-      <p>{apiResponse}</p>
+      <PlaysList />
     </div>
   );
 };

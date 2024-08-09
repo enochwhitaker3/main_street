@@ -1,17 +1,19 @@
+// backend/src/app.ts
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { Client } from 'pg';
+import playsRouter from './routes/plays';
 import path from 'path';
 
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 const app = express();
-const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 
+// Initialize and connect the database client
 const dbClient = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: {
@@ -23,16 +25,12 @@ dbClient.connect()
     .then(() => console.log('Connected to MTS database'))
     .catch(err => console.error('Database connection error:', err.stack));
 
+// Make dbClient available to other modules
+export { dbClient };
 
-app.get('/test-db', async (req, res) => {
-    try {
-        const result = await dbClient.query('select * from mts.plays');
-        res.json(result.rows);
-    } catch (err) {
-        console.error(err);
-        res.status(500).send('Server error');
-    }
-});
+app.use('/api', playsRouter);
+
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
