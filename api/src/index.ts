@@ -14,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 // Initialize and connect the database client
+console.log(process.env.MST_DB_CONNECTION);
 const dbClient = new Client({
     connectionString: process.env.MST_DB_CONNECTION || process.env.DATABASE_URL ,
     ssl: {

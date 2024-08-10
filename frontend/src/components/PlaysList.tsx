@@ -14,7 +14,7 @@ const PlaysList: React.FC = () => {
                 const data = await getAllPlays();
                 setPlays(data);
             } catch (error) {
-                setError('Failed to load plays');
+                setError('Failed to load plays DUDE HERES WHY LOL:');
                 console.log(error)
             } finally {
                 setLoading(false);
