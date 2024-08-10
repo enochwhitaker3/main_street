@@ -1,4 +1,4 @@
-// backend/src/app.ts
+// backend/src/index.ts
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -15,7 +15,7 @@ app.use(express.json());
 
 // Initialize and connect the database client
 const dbClient = new Client({
-    connectionString: process.env.DATABASE_URL,
+    connectionString: process.env.MST_DB_CONNECTION || process.env.DATABASE_URL ,
     ssl: {
         rejectUnauthorized: false,
     },
