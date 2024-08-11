@@ -1,21 +1,35 @@
 // frontend/src/api/plays.ts
 import { PlayType } from "../../../shared/types/plays";
 
-const API_URL = process.env.REACT_APP_API_URL;
+console.log('API_URL:', process.env.REACT_APP_PLAYS_ENDPOINTT);
+const API_URL = process.env.REACT_APP_PLAYS_ENDPOINT;
 
-export const getAllPlays = async () => {
+export const getAllPlays = async (): Promise<PlayType[]> => {
+    if (!API_URL) {
+        throw new Error('The API route is not defined');
+    }
+
     try {
-        console.log(`${API_URL}/plays`)
-        console.log('EE MST_DB_CONNECTION:', process.env.MST_DB_CONNECTION);
-        console.log('EE DATABASE_URL:', process.env.DATABASE_URL);
-        const response = await fetch(`${API_URL}/plays`);
+        const response = await fetch(API_URL);
         if (!response.ok) {
-            console.log(`${response.statusText}: is the RESPONSE`)
-            throw new Error('Network response was not ok BRO');
+            throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        return response.json() as Promise<PlayType[]>;
+        const responses: ApiPlayResponse = await response.json();
+
+        const mappedData: PlayType[] = responses.value.map((item) => ({
+            id: item.id,
+            sponsor_id: item.sponsor_id,
+            title: item.title,
+            start_date: item.start_date,
+            end_date: item.end_date,
+            poster: item.poster,
+            director: item.director,
+        }));
+
+        console.table(mappedData);
+        return mappedData;
     } catch (error) {
-        console.error('THERE WAS an Error fetching plays DUDE:', error);
+        console.error('Sample error:', error);
         throw error;
     }
 };

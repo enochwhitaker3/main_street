@@ -26,11 +26,10 @@ const PlaysList: React.FC = () => {
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
-
     return (
         <ul>
             {plays.map(play => (
-                <li key={play.id}>Title: {play.title} | Director: {play.director} | Sponsor: {play.sponsor_id} | Start Date: {new Date(play.start_date).toLocaleDateString()} | End Date: {new Date(play.end_date).toLocaleDateString()}</li>
+                <li key={play.id}>{`Name: ${play.title} | Director: ${play.director} | Sponsor: ${play.sponsor_id} | Start Date: ${play.start_date} | End Date: ${play.end_date}`}</li>
             ))}
         </ul>
     );
