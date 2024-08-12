@@ -5,3 +5,7 @@ export interface ShowtimeType {
     start_time: Date;
     end_time: Date;
 }
+
+export interface ApiShowtimeResponse {
+    value: ShowtimeType[];
+}

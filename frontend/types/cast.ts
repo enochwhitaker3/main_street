@@ -3,3 +3,7 @@ export interface CastType {
     play_id: number;
     full_name: string;
 }
+
+export interface ApiCastResponse {
+    value: CastType[];
+}

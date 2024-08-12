@@ -1,20 +1,20 @@
 // frontend/src/components/PlaysList.tsx
 import React, { useEffect, useState } from "react";
-import { getAllPlays } from "../api/plays";
+import { getPlayByID } from "../api/plays";
 import { PlayType } from "../../types/plays";
 
-const PlaysList: React.FC = () => {
-  const [plays, setPlays] = useState<PlayType[]>([]);
+const PlaysGet: React.FC = () => {
+  const [play, setPlay] = useState<PlayType>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchPlays = async () => {
       try {
-        const data = await getAllPlays();
-        setPlays(data);
+        const data = await getPlayByID(1);
+        setPlay(data);
       } catch (error) {
-        setError("Failed to load plays DUDE HERES WHY LOL:");
+        setError("Failed to get play by ID");
         console.log(error);
       } finally {
         setLoading(false);
@@ -28,14 +28,14 @@ const PlaysList: React.FC = () => {
   if (error) return <p>{error}</p>;
   return (
     <ul>
-      <h4>All Plays</h4>
-      {plays.map((play) => (
-        <li key={play.id}>
-          {`Name: ${play.title} | Director: ${play.director} | Sponsor: ${play.sponsor_id} | Start Date: ${play.start_date} | End Date: ${play.end_date}`}
+      <>
+        <h4>Returned Play with Id: {play?.id}</h4>
+        <li key={play?.id}>
+          {`Name: ${play?.title} | Director: ${play?.director} | Sponsor: ${play?.sponsor_id} | Start Date: ${play?.start_date} | End Date: ${play?.end_date}`}
         </li>
-      ))}
+      </>
     </ul>
   );
 };
 
-export default PlaysList;
+export default PlaysGet;

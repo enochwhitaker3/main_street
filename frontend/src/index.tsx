@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import PlaysList from './components/PlaysList';
+import TestPage from './components/test-page';
 
 const MyElement: React.FC = () => {
   return (
     <div>
       <h1>Main Street Playhouse</h1>
-      <PlaysList />
+      <TestPage />
     </div>
   );
 };
