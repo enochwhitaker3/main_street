@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import PlaysList from "./PlaysList";
-import PlaysGet from "./PlaysGet";
-import PlaysCreate from "./PlaysCreate";
-import PlaysDelete from "./PlaysDelete";
-import NumberInputComponent from "./NumberInput";
-import PlaysUpdate from "./PlaysUpdate";
+import PlaysList from "../api/play-api/PlaysList";
+import PlaysGet from "../api/play-api/PlaysGet";
+import PlaysCreate from "../api/play-api/PlaysCreate";
+import PlaysDelete from "../api/play-api/PlaysDelete";
+import NumberInputComponent from "../services/Shared/HandleNumberInput";
+import PlaysUpdate from "../api/play-api/PlaysUpdate";
 
-const TestPage: React.FC = () => {
+const PlaysTest: React.FC = () => {
   const [showList, setShowList] = useState(false);
   const [showGet, setShowGet] = useState(false);
   const [showUpdate, setShowUpdate] = useState(false);
@@ -74,4 +74,4 @@ const TestPage: React.FC = () => {
   );
 };
 
-export default TestPage;
+export default PlaysTest;

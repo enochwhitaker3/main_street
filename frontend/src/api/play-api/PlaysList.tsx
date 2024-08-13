@@ -1,7 +1,7 @@
 // frontend/src/components/PlaysList.tsx
 import React, { useEffect, useState } from "react";
-import { getAllPlays } from "../api/plays";
-import { PlayType } from "../../types/plays";
+import { getAllPlays } from "./plays";
+import { PlayType } from "../../../types/plays";
 
 const PlaysList: React.FC = () => {
   const [plays, setPlays] = useState<PlayType[]>([]);

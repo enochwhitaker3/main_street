@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { PlayType } from "../../types/plays";
-import { createPlay } from "../api/plays";
+import { PlayType } from "../../../types/plays";
+import { createPlay } from "../../api/play-api/plays";
 
 interface InputProps {
   PassedPlay: Omit<PlayType, "id"> | undefined;

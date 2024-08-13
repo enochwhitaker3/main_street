@@ -1,15 +1,13 @@
 // frontend/src/components/PlaysList.tsx
 import React, { useEffect, useState } from "react";
-import { getPlayByID } from "../api/plays";
+import { getPlayByID } from "./plays";
+import { PlayType } from "../../../types/plays";
 
-import { PlayType } from "../../types/plays";
-import UpdatePlayComponent from "./HandleUpdate";
-
-interface UpdatePlayByID {
+interface PlaysGetProps {
   id: number;
 }
 
-const PlaysUpdate: React.FC<UpdatePlayByID> = ({ id }) => {
+const PlaysGet: React.FC<PlaysGetProps> = ({ id }) => {
   const [play, setPlay] = useState<PlayType>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -35,15 +33,13 @@ const PlaysUpdate: React.FC<UpdatePlayByID> = ({ id }) => {
   return (
     <ul>
       <>
-        <h4>Play with Id: {play?.id}</h4>
+        <h4>Returned Play with Id: {play?.id}</h4>
         <li key={play?.id}>
           {`Name: ${play?.title} | Director: ${play?.director} | Sponsor: ${play?.sponsor_id} | Start Date: ${play?.start_date} | End Date: ${play?.end_date}`}
         </li>
       </>
-      <h4>What do you want to update?</h4>
-      {play !== null && <UpdatePlayComponent PassedPlay={play} />}
     </ul>
   );
 };
 
-export default PlaysUpdate;
+export default PlaysGet;

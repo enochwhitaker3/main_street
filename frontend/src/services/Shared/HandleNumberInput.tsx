@@ -36,7 +36,7 @@ const NumberInputComponent: React.FC<InputProps> = ({ message, PassedComponent }
         type="number"
         value={inputValue === undefined ? "" : inputValue}
         onChange={handleInputChange}
-        placeholder="Enter the Plays ID"
+        placeholder="Enter the ID"
       />
       <button onClick={handleButtonClick}>Submit</button>
 

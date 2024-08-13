@@ -1,5 +1,5 @@
 //frontend/src/api/plays.ts
-import { ApiPlayResponse, PlayType } from "../../types/plays";
+import { ApiPlayResponse, PlayType } from "../../../types/plays";
 
 const API_URL = process.env.REACT_APP_PLAYS_ENDPOINT;
 
@@ -80,7 +80,7 @@ export const updatePlayByID = async (play: PlayType): Promise<string> => {
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-    
+
     const returned_plays: ApiPlayResponse = await response.json();
 
     if (returned_plays.value.length === 0) {
@@ -115,7 +115,9 @@ export const updatePlayByID = async (play: PlayType): Promise<string> => {
   }
 };
 
-export const createPlay = async (play: Omit<PlayType, "id">): Promise<string> => {
+export const createPlay = async (
+  play: Omit<PlayType, "id">
+): Promise<string> => {
   if (!API_URL) {
     throw new Error(
       "Cannot update play by ID, the API route is not defined properly"
@@ -152,41 +154,41 @@ export const createPlay = async (play: Omit<PlayType, "id">): Promise<string> =>
 };
 
 export const deletePlayByID = async (id: number): Promise<string> => {
-    if (!API_URL) {
+  if (!API_URL) {
+    throw new Error(
+      "Cannot update play by ID, the API route is not defined properly"
+    );
+  }
+  try {
+    // Fetch the play by ID
+    const response = await fetch(`${API_URL}/id/${id}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const returned_plays: ApiPlayResponse = await response.json();
+    console.log(returned_plays);
+
+    if (returned_plays.value.length === 0) {
+      throw new Error("No play found with the given ID");
+    }
+
+    // Attempt to delete the play
+    const deleteResponse = await fetch(`${API_URL}/id/${id}`, {
+      method: "DELETE",
+    });
+
+    if (deleteResponse.status === 404) {
+      // Handle case where the play was not found (possibly already deleted)
+      return "Play not found, or already deleted.";
+    } else if (!deleteResponse.ok) {
       throw new Error(
-        "Cannot update play by ID, the API route is not defined properly"
+        `Failed to delete play. Status: ${deleteResponse.status}`
       );
     }
-    try {
-      // Fetch the play by ID
-      const response = await fetch(`${API_URL}/id/${id}`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const returned_plays: ApiPlayResponse = await response.json();
-      console.log(returned_plays);
-  
-      if (returned_plays.value.length === 0) {
-        throw new Error("No play found with the given ID");
-      }
 
-      // Attempt to delete the play
-      const deleteResponse = await fetch(`${API_URL}/id/${id}`, {
-        method: "DELETE"
-      });
-  
-      if (deleteResponse.status === 404) {
-        // Handle case where the play was not found (possibly already deleted)
-        return "Play not found, or already deleted.";
-      } else if (!deleteResponse.ok) {
-        throw new Error(
-          `Failed to delete play. Status: ${deleteResponse.status}`
-        );
-      }
-  
-      return "Deleted Successfully!";
-    } catch (error) {
-      console.error("Sample error:", error);
-      throw error;
-    }
+    return "Deleted Successfully!";
+  } catch (error) {
+    console.error("Sample error:", error);
+    throw error;
+  }
 };

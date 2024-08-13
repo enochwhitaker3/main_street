@@ -1,10 +1,9 @@
 // frontend/src/components/PlaysList.tsx
 import React from "react";
-import { PlayType } from "../../types/plays";
-import CreatePlayComponent from "./HandleCreate";
+import { PlayType } from "../../../types/plays";
+import CreatePlayComponent from "../../services/play-services/HandleCreate";
 
 const PlaysCreate: React.FC = () => {
-
   const tempPlay: Omit<PlayType, "id"> = {
     sponsor_id: 1,
     title: "",

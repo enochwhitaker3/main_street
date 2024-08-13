@@ -1,12 +1,12 @@
 // frontend/src/components/PlaysList.tsx
 import React, { useEffect, useState } from "react";
-import { deletePlayByID } from "../api/plays";
+import { deletePlayByID } from "./plays";
 
 interface PlaysDeleteProps {
   id: number;
 }
 
-const PlaysDelete: React.FC<PlaysDeleteProps> = ({id}) => {
+const PlaysDelete: React.FC<PlaysDeleteProps> = ({ id }) => {
   const [message, setMessage] = useState<string>();
   const [loading, setLoading] = useState(true);
 

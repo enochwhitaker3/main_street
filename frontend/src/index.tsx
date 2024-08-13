@@ -1,18 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import TestPage from './components/test-page';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import PlaysTest from "./components/plays-test";
+import SponsorsTest from "./components/sponsors-test";
 
 const MyElement: React.FC = () => {
   return (
     <div>
       <h1>Main Street Playhouse</h1>
-      <TestPage />
+      <PlaysTest />
+      <SponsorsTest />
     </div>
   );
 };
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement,
+  document.getElementById("root") as HTMLElement
 );
 
 root.render(
@@ -20,4 +22,3 @@ root.render(
     <MyElement />
   </React.StrictMode>
 );
-
