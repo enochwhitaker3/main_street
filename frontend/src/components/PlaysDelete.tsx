@@ -2,19 +2,22 @@
 import React, { useEffect, useState } from "react";
 import { deletePlayByID } from "../api/plays";
 
-const PlaysDelete: React.FC = () => {
+interface PlaysDeleteProps {
+  id: number;
+}
+
+const PlaysDelete: React.FC<PlaysDeleteProps> = ({id}) => {
   const [message, setMessage] = useState<string>();
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchPlays = async () => {
       try {
-        const data = await deletePlayByID(11);
+        const data = await deletePlayByID(id);
         setMessage(data);
       } catch (error) {
-        setError("Failed to get play by ID");
         console.log(error);
+        setMessage("No play was found with given ID");
       } finally {
         setLoading(false);
       }
@@ -24,10 +27,8 @@ const PlaysDelete: React.FC = () => {
   }, []);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
   return (
     <ul>
-      <h4>Delete Play</h4>
       <li>{message}</li>
     </ul>
   );

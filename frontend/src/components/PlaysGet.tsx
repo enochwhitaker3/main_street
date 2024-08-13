@@ -3,7 +3,11 @@ import React, { useEffect, useState } from "react";
 import { getPlayByID } from "../api/plays";
 import { PlayType } from "../../types/plays";
 
-const PlaysGet: React.FC = () => {
+interface PlaysGetProps {
+  id: number;
+}
+
+const PlaysGet: React.FC<PlaysGetProps> = ({id}) => {
   const [play, setPlay] = useState<PlayType>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -11,11 +15,11 @@ const PlaysGet: React.FC = () => {
   useEffect(() => {
     const fetchPlays = async () => {
       try {
-        const data = await getPlayByID(1);
+        const data = await getPlayByID(id);
         setPlay(data);
       } catch (error) {
-        setError("Failed to get play by ID");
         console.log(error);
+        setError("Failed to get play by ID");
       } finally {
         setLoading(false);
       }

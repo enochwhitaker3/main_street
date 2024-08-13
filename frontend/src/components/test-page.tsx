@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import PlaysList from "./PlaysList";
 import PlaysGet from "./PlaysGet";
-import PlaysUpdate from "./PlaysUpdate";
 import PlaysCreate from "./PlaysCreate";
 import PlaysDelete from "./PlaysDelete";
+import NumberInputComponent from "./NumberInput";
+import PlaysUpdate from "./PlaysUpdate";
 
 const TestPage: React.FC = () => {
   const [showList, setShowList] = useState(false);
@@ -27,8 +28,7 @@ const TestPage: React.FC = () => {
 
   const deletePlay = () => {
     setShowDelete(true);
-  }
-
+  };
 
   return (
     <div>
@@ -37,16 +37,39 @@ const TestPage: React.FC = () => {
         <button id="list" onClick={getAllPlays}>
           List
         </button>
-        <button id="get" onClick={getPlay}>Get</button>
-        <button id="update" onClick={updatePlay}>Update</button>
-        <button id="create" onClick={createPlay}>Create</button>
-        <button id="delete" onClick={deletePlay}>Delete</button>
+        <button id="get" onClick={getPlay}>
+          Get
+        </button>
+        <button id="update" onClick={updatePlay}>
+          Update
+        </button>
+        <button id="create" onClick={createPlay}>
+          Create
+        </button>
+        <button id="delete" onClick={deletePlay}>
+          Delete
+        </button>
       </div>
       {showList && <PlaysList />}
-      {showGet && <PlaysGet />}
-      {showUpdate && <PlaysUpdate />}
+      {showGet && (
+        <NumberInputComponent
+          message={"Get Play by ID"}
+          PassedComponent={PlaysGet}
+        />
+      )}
+      {showUpdate && (
+        <NumberInputComponent
+          message={"What Play Do You Want To Update?"}
+          PassedComponent={PlaysUpdate}
+        />
+      )}
       {showCreate && <PlaysCreate />}
-      {showDelete && <PlaysDelete />}
+      {showDelete && (
+        <NumberInputComponent
+          message={"Delete Play"}
+          PassedComponent={PlaysDelete}
+        />
+      )}
     </div>
   );
 };

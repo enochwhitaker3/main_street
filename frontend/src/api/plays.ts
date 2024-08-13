@@ -68,7 +68,7 @@ export const getPlayByID = async (id: number): Promise<PlayType> => {
   }
 };
 
-export const updatePlayByID = async (id: number): Promise<string> => {
+export const updatePlayByID = async (play: PlayType): Promise<string> => {
   if (!API_URL) {
     throw new Error(
       "Cannot update play by ID, the API route is not defined properly"
@@ -76,10 +76,11 @@ export const updatePlayByID = async (id: number): Promise<string> => {
   }
   try {
     //Fetch the play by ID
-    const response = await fetch(`${API_URL}/id/${id}`);
+    const response = await fetch(`${API_URL}/id/${play.id}`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
+    
     const returned_plays: ApiPlayResponse = await response.json();
 
     if (returned_plays.value.length === 0) {
@@ -87,15 +88,15 @@ export const updatePlayByID = async (id: number): Promise<string> => {
     }
 
     const tempPlay: Omit<PlayType, "id"> = {
-      sponsor_id: returned_plays.value[0].sponsor_id,
-      title: returned_plays.value[0].title,
-      start_date: returned_plays.value[0].start_date,
-      end_date: returned_plays.value[0].end_date,
-      poster: returned_plays.value[0].poster,
-      director: "JuDean Parkinson",
+      sponsor_id: play.sponsor_id,
+      title: play.title,
+      start_date: play.start_date,
+      end_date: play.end_date,
+      poster: play.poster,
+      director: play.director,
     };
 
-    const updatePlayResponse = await fetch(`${API_URL}/id/${id}`, {
+    const updatePlayResponse = await fetch(`${API_URL}/id/${play.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(tempPlay),
@@ -107,38 +108,39 @@ export const updatePlayByID = async (id: number): Promise<string> => {
       );
     }
 
-    return "Updated Properly!";
+    return "Sucessfully Updated!";
   } catch (error) {
     console.error("Sample error:", error);
     throw error;
   }
 };
 
-export const createPlay = async (): Promise<string> => {
+export const createPlay = async (play: Omit<PlayType, "id">): Promise<string> => {
   if (!API_URL) {
     throw new Error(
       "Cannot update play by ID, the API route is not defined properly"
     );
   }
+
   try {
-    const newPlay: Omit<PlayType, "id"> = {
-      sponsor_id: 1,
-      title: "New Age Play",
-      start_date: new Date("2024-10-01T14:30:00"),
-      end_date: new Date("2024-10-10T14:30:00"),
-      poster: "No poster",
-      director: "Enoch Whitaker",
+    const tempPlay: Omit<PlayType, "id"> = {
+      sponsor_id: play.sponsor_id,
+      title: play.title,
+      start_date: play.start_date,
+      end_date: play.end_date,
+      poster: play.poster,
+      director: play.director,
     };
 
     const updatePlayResponse = await fetch(`${API_URL}/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newPlay),
+      body: JSON.stringify(tempPlay),
     });
 
     if (!updatePlayResponse.ok) {
       throw new Error(
-        `Failed to update play. Status: ${updatePlayResponse.status}`
+        `Failed to create play. Status: ${updatePlayResponse.status}`
       );
     }
 
