@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import PlaysTest from "./components/plays-test";
 import SponsorsTest from "./components/sponsors-test";
+import ShowtimeTest from "./components/showtimes-test";
 
 const MyElement: React.FC = () => {
   return (
@@ -9,6 +10,7 @@ const MyElement: React.FC = () => {
       <h1>Main Street Playhouse</h1>
       <PlaysTest />
       <SponsorsTest />
+      <ShowtimeTest />
     </div>
   );
 };

@@ -46,6 +46,15 @@
           "role": "anonymous"
         }
       ]
+    },
+    "showtimes": {
+      "source": "showtimes",
+      "permissions": [
+        {
+          "actions": ["*"],
+          "role": "anonymous"
+        }
+      ]
     }
   }
 }
