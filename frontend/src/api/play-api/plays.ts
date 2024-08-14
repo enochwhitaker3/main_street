@@ -75,7 +75,6 @@ export const updatePlayByID = async (play: PlayType): Promise<string> => {
     );
   }
   try {
-    //Fetch the play by ID
     const response = await fetch(`${API_URL}/id/${play.id}`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);

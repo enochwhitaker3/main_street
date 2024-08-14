@@ -31,7 +31,7 @@ const UpdatePlayComponent: React.FC<InputProps> = ({ PassedPlay }) => {
     if (!isNaN(numericValue)) {
       setSponsorIDValue(numericValue);
     } else {
-      setSponsorIDValue(undefined); // or handle as needed
+      setSponsorIDValue(undefined);
     }
   };
 

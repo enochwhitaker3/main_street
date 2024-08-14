@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import PlaysTest from "./components/plays-test";
 import SponsorsTest from "./components/sponsors-test";
 import ShowtimeTest from "./components/showtimes-test";
+import CastMemberTest from "./components/cast-test";
 
 const MyElement: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const MyElement: React.FC = () => {
       <PlaysTest />
       <SponsorsTest />
       <ShowtimeTest />
+      <CastMemberTest />
     </div>
   );
 };

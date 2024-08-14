@@ -51,10 +51,10 @@ const UpdateShowtimeComponent: React.FC<InputProps> = ({ PassedShowtime }) => {
     if (triggerUpdate && PassedShowtime) {
       const SUC: ShowtimeType = {
         id: PassedShowtime.id,
-        play_id: PassedShowtime.play_id,
-        doors_open: PassedShowtime.doors_open,
-        start_time: PassedShowtime.start_time,
-        end_time: PassedShowtime.end_time,
+        play_id: playIDValue ||PassedShowtime.play_id,
+        doors_open: doorsOpenValue || PassedShowtime.doors_open,
+        start_time: startTimeValue || PassedShowtime.start_time,
+        end_time: endTimeValue || PassedShowtime.end_time,
       };
 
       const fetchShowtime = async () => {

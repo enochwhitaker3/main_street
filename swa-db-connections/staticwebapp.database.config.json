@@ -55,6 +55,15 @@
           "role": "anonymous"
         }
       ]
+    },
+    "cast": {
+      "source": "cast_members",
+      "permissions": [
+        {
+          "actions": ["*"],
+          "role": "anonymous"
+        }
+      ]
     }
   }
 }

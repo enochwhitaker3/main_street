@@ -36,9 +36,9 @@ const UpdateSponsorComponent: React.FC<InputProps> = ({ PassedSponsors }) => {
     if (triggerUpdate && PassedSponsors) {
       const SUC: SponsorType = {
         id: PassedSponsors.id,
-        sponsor_name: PassedSponsors.sponsor_name,
-        sponsor_address: PassedSponsors.sponsor_address,
-        sponsor_phonenumber: PassedSponsors.sponsor_phonenumber,
+        sponsor_name: nameValue ||PassedSponsors.sponsor_name,
+        sponsor_address: addressValue ||  PassedSponsors.sponsor_address,
+        sponsor_phonenumber: phoneNumberValue || PassedSponsors.sponsor_phonenumber,
       };
 
       const fetchSponsors = async () => {
