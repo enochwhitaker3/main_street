@@ -7,7 +7,7 @@ interface InputProps {
 
 const NumberInputComponent: React.FC<InputProps> = ({ message, PassedComponent }) => {
   const [inputValue, setInputValue] = useState<number | undefined>(undefined);
-  const [ID, setID] = useState<number | null>(null); // New state to trigger deletion
+  const [ID, setID] = useState<number | null>(null);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;

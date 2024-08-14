@@ -1,4 +1,3 @@
-// frontend/src/components/PlaysList.tsx
 import React from "react";
 import { PlayType } from "../../../types/plays";
 import CreatePlayComponent from "../../services/play-services/HandleCreate";

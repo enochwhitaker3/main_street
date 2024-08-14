@@ -20,7 +20,7 @@ const UpdateCastMemberComponent: React.FC<InputProps> = ({
     if (!isNaN(numericValue)) {
       setPlayIDValue(numericValue);
     } else {
-      setPlayIDValue(undefined); // or handle as needed
+      setPlayIDValue(undefined);
     }
   };
 

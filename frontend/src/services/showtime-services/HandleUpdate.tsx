@@ -20,7 +20,7 @@ const UpdateShowtimeComponent: React.FC<InputProps> = ({ PassedShowtime }) => {
     if (!isNaN(numericValue)) {
       setPlayIDValue(numericValue);
     } else {
-      setPlayIDValue(undefined); // or handle as needed
+      setPlayIDValue(undefined);
     }
   };
 

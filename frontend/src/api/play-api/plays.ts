@@ -1,4 +1,3 @@
-//frontend/src/api/plays.ts
 import { ApiPlayResponse, PlayType } from "../../../types/plays";
 
 const API_URL = process.env.REACT_APP_PLAYS_ENDPOINT;
@@ -159,7 +158,6 @@ export const deletePlayByID = async (id: number): Promise<string> => {
     );
   }
   try {
-    // Fetch the play by ID
     const response = await fetch(`${API_URL}/id/${id}`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -171,13 +169,11 @@ export const deletePlayByID = async (id: number): Promise<string> => {
       throw new Error("No play found with the given ID");
     }
 
-    // Attempt to delete the play
     const deleteResponse = await fetch(`${API_URL}/id/${id}`, {
       method: "DELETE",
     });
 
     if (deleteResponse.status === 404) {
-      // Handle case where the play was not found (possibly already deleted)
       return "Play not found, or already deleted.";
     } else if (!deleteResponse.ok) {
       throw new Error(

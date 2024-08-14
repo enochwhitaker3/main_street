@@ -73,7 +73,7 @@ const UpdatePlayComponent: React.FC<InputProps> = ({ PassedPlay }) => {
           console.log(error);
         } finally {
           setLoading(false);
-          setTriggerUpdate(false); // Reset the trigger
+          setTriggerUpdate(false);
         }
       };
 

@@ -1,4 +1,3 @@
-// frontend/src/components/PlaysList.tsx
 import React, { useEffect, useState } from "react";
 import { getPlayByID } from "./plays";
 import { PlayType } from "../../../types/plays";

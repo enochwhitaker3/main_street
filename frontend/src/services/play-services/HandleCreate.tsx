@@ -31,7 +31,7 @@ const CreatePlayComponent: React.FC<InputProps> = ({ PassedPlay }) => {
     if (!isNaN(numericValue)) {
       setSponsorIDValue(numericValue);
     } else {
-      setSponsorIDValue(undefined); // or handle as needed
+      setSponsorIDValue(undefined);
     }
   };
 
@@ -72,7 +72,7 @@ const CreatePlayComponent: React.FC<InputProps> = ({ PassedPlay }) => {
           console.log(error);
         } finally {
           setLoading(false);
-          setTriggerCreate(false); // Reset the trigger
+          setTriggerCreate(false);
         }
       };
 

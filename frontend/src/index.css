@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Madrid";
+  src: url("./fonts/MadridAMARegular.otf") format("opentype");
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@layer base {
+  body {
+    background-color: #faf5e0;
+    font-family: 'Madrid';
+  }
+}

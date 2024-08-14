@@ -1,4 +1,3 @@
-//frontend/src/api/sponsors.ts
 import { ApiSponsorResponse, SponsorType } from "../../../types/sponsors";
 
 const API_URL = process.env.REACT_APP_SPONSORS_ENDPOINT;
