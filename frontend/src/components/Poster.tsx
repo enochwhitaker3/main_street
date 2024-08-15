@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { PlayType } from "../../types/plays";
 import TicketButton from "./TicketButton";
 
@@ -10,17 +10,29 @@ const Poster: React.FC<PosterProps> = ({ play }) => {
   const [isOverlayVisible, setOverlayVisible] = useState(false);
 
   const handleClick = () => {
-    setOverlayVisible(!isOverlayVisible);
+    setOverlayVisible((prev) => !prev);
   };
 
-  // Define options for formatting
+  const handleClickOutside = (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.poster-container')) {
+      setOverlayVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "long",
     day: "numeric",
   };
 
-  // Convert the date to the desired format
   const startDate = new Date(play.start_date).toLocaleDateString(
     "en-US",
     options
@@ -31,9 +43,7 @@ const Poster: React.FC<PosterProps> = ({ play }) => {
     <div className="w-full">
       <div className="m-8 w-full px-4 mx-auto">
         <div
-          className={`relative rounded-lg bg-creame shadow-lg w-18 cursor-pointer group overflow-hidden ${
-            isOverlayVisible ? "overlay-visible" : ""
-          }`}
+          className={`relative rounded-lg bg-creame shadow-lg w-18 cursor-pointer group overflow-hidden poster-container`}
           onClick={handleClick}
         >
           <img
@@ -43,9 +53,7 @@ const Poster: React.FC<PosterProps> = ({ play }) => {
           />
           <div
             className={`absolute bottom-0 left-0 right-0 h-3/4 bg-blackolive transform ${
-              isOverlayVisible
-                ? "translate-y-0"
-                : "translate-y-full group-hover:translate-y-0"
+              isOverlayVisible ? "translate-y-0" : "translate-y-full"
             } transition-transform duration-700 ease-in-out flex flex-col items-center justify-center`}
           >
             <ul className="text-creame px-4 lg:text-lg md:text-sm sm:text-xs">

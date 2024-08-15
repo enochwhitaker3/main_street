@@ -35,7 +35,7 @@ const Navbar = () => {
         />
       </div>
       <div
-        className={`absolute sm:hidden top-24 left-0 w-full bg-salmon flex flex-col items-center gap-6 text-lg transform transition-transform ${
+        className={`absolute sm:hidden top-24 left-0 w-full bg-salmon flex flex-col items-center gap-6 text-lg transform transition-transform z-20 ${
           isMenuOpen ? "opacity-100" : "opacity-0"
         }`}
         style={{ transition: "transform 0.3s ease, opacity 0.3s ease" }}
