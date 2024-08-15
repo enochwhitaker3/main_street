@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import PlaysList from "../api/play-api/PlaysList";
-import PlaysGet from "../api/play-api/PlaysGet";
-import PlaysCreate from "../api/play-api/PlaysCreate";
-import PlaysDelete from "../api/play-api/PlaysDelete";
+import {PlaysList} from "../api/play-api/PlaysSwagger";
+import {PlaysGet} from "../api/play-api/PlaysSwagger";
+import {PlaysCreate} from "../api/play-api/PlaysSwagger";
+import {PlaysDelete} from "../api/play-api/PlaysSwagger";
 import NumberInputComponent from "../services/Shared/HandleNumberInput";
-import PlaysUpdate from "../api/play-api/PlaysUpdate";
+import {PlaysUpdate} from "../api/play-api/PlaysSwagger";
 
 const PlaysTest: React.FC = () => {
   const [showList, setShowList] = useState(false);

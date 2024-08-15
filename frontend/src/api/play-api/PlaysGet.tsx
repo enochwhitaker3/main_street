@@ -1,44 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { getPlayByID } from "./plays";
+import { useState, useEffect } from "react";
 import { PlayType } from "../../../types/plays";
+import { getAllPlays } from "./plays";
 
-interface PlaysGetProps {
-  id: number;
-}
-
-const PlaysGet: React.FC<PlaysGetProps> = ({ id }) => {
-  const [play, setPlay] = useState<PlayType>();
-  const [loading, setLoading] = useState(true);
+export const getPlays = () => {
+  const [plays, setPlays] = useState<PlayType[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchPlays = async () => {
       try {
-        const data = await getPlayByID(id);
-        setPlay(data);
+        const data = await getAllPlays();
+        setPlays(data);
       } catch (error) {
+        setError("Failed to load plays");
         console.log(error);
-        setError("Failed to get play by ID");
-      } finally {
-        setLoading(false);
       }
     };
 
     fetchPlays();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
-  return (
-    <ul>
-      <>
-        <h4>Returned Play with Id: {play?.id}</h4>
-        <li key={play?.id}>
-          {`Name: ${play?.title} | Director: ${play?.director} | Sponsor: ${play?.sponsor_id} | Start Date: ${play?.start_date} | End Date: ${play?.end_date}`}
-        </li>
-      </>
-    </ul>
-  );
+  return { plays, error };
 };
-
-export default PlaysGet;

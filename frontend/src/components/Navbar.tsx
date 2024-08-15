@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="w-full flex justify-between p-4 pr-8 sm:pr-14 pl-8 sm:pl-14  items-center z-20 bg-salmon">
+    <div className="w-full flex justify-between p-4 pr-8  pl-8   items-center z-20 bg-salmon">
       <img
         className="h-16 w-16 z-20 cursor-pointer"
         src={mstLogo}
