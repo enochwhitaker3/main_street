@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { PlayType } from "../../types/plays";
-import TicketButton from "./TicketButton";
+import {TicketButton} from "./TicketButton";
 
 interface PosterProps {
   play: PlayType;

@@ -1,18 +1,25 @@
 import React from "react";
-import Hero from "./components/Hero";
 import "./index.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import UpcomingPlays from "./components/upcomingPlays";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/Home";
+import CurrentlyShowingPage from "./pages/CurrentlyShowingPage";
 
 const App = () => {
   return (
-    <div>
-      <Navbar />
-      <Hero />
-      <UpcomingPlays />
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/currentlyshowing" element={<CurrentlyShowingPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 };
 
