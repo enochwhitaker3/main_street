@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/Home";
 import CurrentlyShowingPage from "./pages/CurrentlyShowingPage";
+import BuyTickets from "./pages/BuyTickets";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/currentlyshowing" element={<CurrentlyShowingPage />} />
+            <Route path="/gettickets" element={<BuyTickets />} />
           </Routes>
         </main>
         <Footer />

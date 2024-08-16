@@ -71,16 +71,17 @@ const CurrentlyShowing = () => {
         ) : (
           <>
             <DisplayPoster play={play} />
-            <h1 className="sm:text-3xl md:text-4xl lg:text-5xl text-3xl sm:pt-10 text-blackolive sm:text-start justify-center text-center">
+            <h1 className="sm:text-3xl md:text-4xl xl:text-5xl text-3xl sm:pt-10 text-blackolive sm:text-start justify-center text-center">
               {play.title}
-              <span className="flex flex-col sm:text-xl md:text-xl lg:text-[1.7rem] text-xl text-blackolive">
+              <span className="flex flex-col sm:text-xl md:text-xl xl:text-[1.7rem] text-xl text-blackolive">
                 Directed by: {play.director}
               </span>
-              <span className="flex flex-col sm:text-xl md:text-xl lg:text-[1.7rem] text-xl text-blackolive">
+              <span className="flex flex-col sm:text-xl md:text-xl xl:text-[1.7rem] text-xl text-blackolive">
                 {startDate} - {end_date}
               </span>
               <div className="flex sm:justify-start justify-center pt-4">
-                <InvertedTicketButton />
+
+                  <InvertedTicketButton />
               </div>
             </h1>
           </>

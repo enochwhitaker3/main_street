@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { PlayType } from "../../types/plays";
-import {TicketButton} from "./TicketButton";
+import { TicketButton } from "./TicketButton";
+import { Link } from "react-router-dom";
 
 interface PosterProps {
   play: PlayType;
@@ -16,15 +17,15 @@ const Poster: React.FC<PosterProps> = ({ play }) => {
 
   const handleClickOutside = (event: MouseEvent) => {
     const target = event.target as HTMLElement;
-    if (!target.closest('.poster-container')) {
+    if (!target.closest(".poster-container")) {
       setOverlayVisible(false);
     }
   };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -41,7 +42,8 @@ const Poster: React.FC<PosterProps> = ({ play }) => {
   const endDate = new Date(play.end_date).toLocaleDateString("en-US", options);
 
   const handleMouseEnter = () => {
-    if (window.innerWidth > 640) { // 640px corresponds to the 'sm' breakpoint in Tailwind
+    if (window.innerWidth > 640) {
+      // 640px corresponds to the 'sm' breakpoint in Tailwind
       setIsHovered(true);
     }
   };
@@ -68,7 +70,9 @@ const Poster: React.FC<PosterProps> = ({ play }) => {
           />
           <div
             className={`absolute bottom-0 left-0 right-0 h-3/4 bg-blackolive transform ${
-              isOverlayVisible || isHovered ? "translate-y-0" : "translate-y-full"
+              isOverlayVisible || isHovered
+                ? "translate-y-0"
+                : "translate-y-full"
             } transition-transform duration-700 ease-in-out flex flex-col items-center justify-center`}
           >
             <ul className="text-creame px-4 lg:text-lg md:text-sm sm:text-xs">
@@ -78,7 +82,9 @@ const Poster: React.FC<PosterProps> = ({ play }) => {
                 From {startDate} to {endDate}
               </li>
               <li className="mt-4">
-                <TicketButton />
+                <Link to="/gettickets">
+                  <TicketButton />
+                </Link>
               </li>
             </ul>
           </div>

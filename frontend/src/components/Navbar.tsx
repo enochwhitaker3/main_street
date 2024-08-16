@@ -36,7 +36,7 @@ const Navbar = () => {
               : `link-underline link-underline-sky`
           } text-creame cursor-pointer`}
         >
-          Tickets
+          <Link to="/gettickets">Tickets</Link>
         </a>
         <a
           className={`${
@@ -45,7 +45,7 @@ const Navbar = () => {
               : `link-underline link-underline-teal`
           } text-creame cursor-pointer`}
         >
-          About Us
+          <Link to="/aboutus">About Us</Link>
         </a>
         <a
           className={`${
@@ -86,7 +86,7 @@ const Navbar = () => {
               : `link-underline link-underline-sky`
           } text-creame cursor-pointer`}
         >
-          Tickets
+          <Link to="/gettickets">Tickets</Link>
         </a>
         <a
           className={`${
@@ -95,7 +95,7 @@ const Navbar = () => {
               : `link-underline link-underline-teal`
           } text-creame cursor-pointer`}
         >
-          About Us
+          <Link to="/aboutus">About Us</Link>
         </a>
         <a
           className={`${
@@ -104,7 +104,7 @@ const Navbar = () => {
               : `link-underline link-underline-sky`
           } text-creame cursor-pointer`}
         >
-          Contact Us
+          <Link to="/contactus">Contact Us</Link>
         </a>
       </div>
     </div>
