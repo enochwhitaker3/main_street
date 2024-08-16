@@ -1,8 +1,8 @@
 {
     "routes": [
       {
-        "route": "/data-api/*",
-        "serve": "/data-api",
+        "route": "/api/*",
+        "serve": "/api/index.html",
         "statusCode": 200
       },
       {
