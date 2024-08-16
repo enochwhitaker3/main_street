@@ -1,7 +1,6 @@
 import React from "react";
 import Hero from "../components/Hero";
-import UpcomingPlays from "../components/UpcomingPlays";
-
+import UpcomingPlays from "../components/FuturePlays";
 const HomePage = () => {
   return (
     <div>
