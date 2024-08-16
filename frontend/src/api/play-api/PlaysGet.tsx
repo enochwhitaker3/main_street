@@ -2,6 +2,9 @@
 import { PlayType } from "../../../types/plays";
 import { getAllPlays } from "./plays";
 
+// Function to create a delay
+// const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
 export const getPlays = async (): Promise<{ plays: PlayType[] }> => {
   try {
     const data = await getAllPlays();
@@ -29,3 +32,4 @@ export const getPlayByDate = async (): Promise<{ plays: PlayType }> => {
     throw new Error("Failed to load plays");
   }
 };
+

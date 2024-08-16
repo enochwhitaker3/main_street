@@ -38,7 +38,11 @@ const CurrentlyShowing = () => {
   }, []);
 
   if (play == undefined) {
-    return <p>Failed to fetch play</p>;
+    return (
+      <div className="h-screen flex items-center justify-center pr-50">
+        <LoaderComponent />
+      </div>
+    );
   }
   if (error) {
     return <p>{error}</p>;
