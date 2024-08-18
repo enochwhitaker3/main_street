@@ -43,8 +43,7 @@ const CreateCastMemberComponent: React.FC<InputProps> = ({ PassedCastMember }) =
           await createCastMember(CMUC);
           setMessage("Success!");
         } catch (error) {
-          setMessage("Failed to create");
-          console.log(error);
+          setMessage(`Failed to create ${error}`);
         } finally {
           setLoading(false);
           setTriggerCreate(false);

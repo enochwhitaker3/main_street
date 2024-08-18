@@ -15,8 +15,7 @@ export const PlaysList: React.FC = () => {
         const data = await getAllPlays();
         setPlays(data);
       } catch (error) {
-        setError("Failed to load plays DUDE HERES WHY LOL:");
-        console.log(error);
+        setError(`Failed to load plays ${error}`);
       } finally {
         setLoading(false);
       }
@@ -54,8 +53,7 @@ export const PlaysGet: React.FC<PlaysGetProps> = ({ id }) => {
         const data = await getPlayByID(id);
         setPlay(data);
       } catch (error) {
-        console.log(error);
-        setError("Failed to get play by ID");
+        setError(`Failed to get play by ID ${error}`);
       } finally {
         setLoading(false);
       }
@@ -92,8 +90,7 @@ export const PlaysDelete: React.FC<PlaysDeleteProps> = ({ id }) => {
         const data = await deletePlayByID(id);
         setMessage(data);
       } catch (error) {
-        console.log(error);
-        setMessage("No play was found with given ID");
+        setMessage(`No play was found with given ID ${error}`);
       } finally {
         setLoading(false);
       }
@@ -143,8 +140,7 @@ export const PlaysUpdate: React.FC<UpdatePlayByID> = ({ id }) => {
         const data = await getPlayByID(id);
         setPlay(data);
       } catch (error) {
-        console.log(error);
-        setError("Failed to get play by ID");
+        setError(`Failed to get play by ID ${error}`);
       } finally {
         setLoading(false);
       }

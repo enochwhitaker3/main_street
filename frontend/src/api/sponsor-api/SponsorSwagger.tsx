@@ -15,8 +15,7 @@ export const SponsorsList: React.FC = () => {
         const data = await getAllSponsors();
         setSponsors(data);
       } catch (error) {
-        setError("Failed to load sponsors");
-        console.log(error);
+        setError(`Failed to load sponsors ${error}`);
       } finally {
         setLoading(false);
       }
@@ -54,8 +53,7 @@ export const SponsorsGet: React.FC<SponsorsGetProps> = ({ id }) => {
         const data = await getSponsorByID(id);
         setSponsor(data);
       } catch (error) {
-        console.log(error);
-        setError("Failed to get sponsor by ID");
+        setError(`Failed to get sponsor by ID ${error}`);
       } finally {
         setLoading(false);
       }
@@ -110,8 +108,7 @@ export const SponsorsUpdate: React.FC<UpdateSponsorByID> = ({ id }) => {
         const data = await getSponsorByID(id);
         setSponsor(data);
       } catch (error) {
-        console.log(error);
-        setError("Failed to get sponsor by ID");
+        setError(`Failed to get sponsor by ID ${error}`);
       } finally {
         setLoading(false);
       }
@@ -149,8 +146,7 @@ export const SponsorDelete: React.FC<SponsorDeleteProps> = ({ id }) => {
         const data = await deleteSponsorByID(id);
         setMessage(data);
       } catch (error) {
-        console.log(error);
-        setMessage("No sponsor was found with given ID");
+        setMessage(`No sponsor was found with given ID ${error}`);
       } finally {
         setLoading(false);
       }

@@ -44,8 +44,7 @@ const CreateSponsorComponent: React.FC<InputProps> = ({ PassedSponsor }) => {
           await createSponsor(SUC);
           setMessage("Success!");
         } catch (error) {
-          setMessage("Failed to update");
-          console.log(error);
+          setMessage(`Failed to update ${error}`);
         } finally {
           setLoading(false);
           setTriggerCreate(false);

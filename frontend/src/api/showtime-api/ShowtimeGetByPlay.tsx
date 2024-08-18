@@ -17,8 +17,7 @@ const ShowtimeGetByPlay: React.FC<ShowtimeGetProps> = ({ id }) => {
         const data = await getAllShowtimesByPlayID(id);
         setShowtime(data);
       } catch (error) {
-        console.log(error);
-        setError("Failed to get showtime by play ID");
+        setError(`Failed to get showtime by play ID ${error}`);
       } finally {
         setLoading(false);
       }

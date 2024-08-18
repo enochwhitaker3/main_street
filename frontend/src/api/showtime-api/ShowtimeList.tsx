@@ -13,8 +13,7 @@ const ShowtimeList: React.FC = () => {
         const data = await getAllShowtimes();
         setShowtimes(data);
       } catch (error) {
-        setError("Failed to load showtimes:");
-        console.log(error);
+        setError(`Failed to load showtimes: ${error}`);
       } finally {
         setLoading(false);
       }

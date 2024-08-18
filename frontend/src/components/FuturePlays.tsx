@@ -16,8 +16,7 @@ const UpcomingPlays = () => {
         setPlays(result.plays);
         setLoading(false);
       } catch (err) {
-        setError("Failed to load plays");
-        console.log(err);
+        setError(`Failed to load plays ${error}`);
         setLoading(false);
       }
     };

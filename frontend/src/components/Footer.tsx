@@ -1,13 +1,16 @@
 import React from "react";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaSquareInstagram } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer className="bg-teal text-creame py-8 text-center flex items-center justify-center ">
       <div className="flex justify-center items-center space-x-2 ">
         <p>Main Street Playhouse</p>
-        <a className="cursor-pointer hover:text-teal">©</a>
+        <div className="cursor-pointer hover:underline">
+          <Link to="/adminlogin">©</Link>
+        </div>
         <p>2024</p>
         <a
           href="https://www.facebook.com/tremontonplayhouse"

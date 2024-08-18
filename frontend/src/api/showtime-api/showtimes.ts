@@ -24,7 +24,6 @@ export const getAllShowtimes = async (): Promise<ShowtimeType[]> => {
       })
     );
 
-    console.table(mappedShowtimes);
     return mappedShowtimes;
   } catch (error) {
     console.error("Sample error:", error);
@@ -62,7 +61,6 @@ export const getAllShowtimesByPlayID = async (
       })
     );
 
-    console.table(mappedShowtimes);
     return mappedShowtimes;
   } catch (error) {
     console.error("Sample error:", error);
@@ -95,7 +93,6 @@ export const getShowtimeByID = async (id: number): Promise<ShowtimeType> => {
       end_time: returned_showtime.value[0].end_time,
     };
 
-    console.table(mappedShowtime);
     return mappedShowtime;
   } catch (error) {
     console.error("Sample error:", error);

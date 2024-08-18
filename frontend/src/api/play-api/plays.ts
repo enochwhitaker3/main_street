@@ -24,7 +24,6 @@ export const getAllPlays = async (): Promise<PlayType[]> => {
       director: item.director,
     }));
 
-    console.table(mappedData);
     return mappedData;
   } catch (error) {
     console.error("Sample error:", error);
@@ -59,7 +58,6 @@ export const getPlayByID = async (id: number): Promise<PlayType> => {
       director: returned_plays.value[0].director,
     };
 
-    console.table(mappedPlay);
     return mappedPlay;
   } catch (error) {
     console.error("Sample error:", error);

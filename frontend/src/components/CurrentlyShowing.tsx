@@ -29,10 +29,8 @@ const CurrentlyShowing = () => {
       try {
         const result = await getPlayByDate();
         setPlay(result.plays);
-        setLoading(false);
       } catch (err) {
-        setError("Failed to load play");
-        console.log(err);
+        setError(`Failed to load play ${err}`);
         setLoading(false);
       }
     };
@@ -45,9 +43,11 @@ const CurrentlyShowing = () => {
         try {
           const result2 = await getSponsorById(play.sponsor_id);
           setSponsor(result2);
+          setLoading(false);
         } catch (err) {
           console.error("Failed to load sponsor:", err);
           setError("Failed to load sponsor");
+          setLoading(false);
         }
       }
     };
@@ -55,7 +55,7 @@ const CurrentlyShowing = () => {
     fetchSponsor();
   }, [play]);
 
-  if (play == undefined) {
+  if (play == undefined || loading) {
     return (
       <div className="h-screen flex items-center justify-center pr-50">
         <LoaderComponent />

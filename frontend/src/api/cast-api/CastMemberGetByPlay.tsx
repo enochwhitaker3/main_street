@@ -17,8 +17,7 @@ const CastMembersGetByPlay: React.FC<CastMemberGetProps> = ({ id }) => {
         const data = await getAllCastMemebersByPlayID(id);
         setCastMembers(data);
       } catch (error) {
-        console.log(error);
-        setError("Failed to get cast members by play ID");
+        setError(`Failed to get cast members by play ID, ${error}`);
       } finally {
         setLoading(false);
       }

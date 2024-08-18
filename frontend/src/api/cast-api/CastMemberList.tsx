@@ -13,8 +13,7 @@ const CastMemberList: React.FC = () => {
         const data = await getAllCastMembers();
         setCastMembers(data);
       } catch (error) {
-        setError("Failed to load cast members:");
-        console.log(error);
+        setError(`Failed to load cast members:${error}`);
       } finally {
         setLoading(false);
       }

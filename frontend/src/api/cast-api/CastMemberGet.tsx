@@ -17,8 +17,7 @@ const CastMemberGet: React.FC<CastMemberGetProps> = ({ id }) => {
         const data = await getCastMemberByID(id);
         setCastMember(data);
       } catch (error) {
-        console.log(error);
-        setError("Failed to get cast member by ID");
+        setError(`Failed to get cast member by ID, ${error}`);
       } finally {
         setLoading(false);
       }

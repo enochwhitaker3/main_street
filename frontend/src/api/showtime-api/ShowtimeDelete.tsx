@@ -15,8 +15,7 @@ const ShowtimeDelete: React.FC<ShowtimeDeleteProps> = ({ id }) => {
         const data = await deleteShowtimeByID(id);
         setMessage(data);
       } catch (error) {
-        console.log(error);
-        setMessage("No showtime was found with given ID");
+        setMessage(`No showtime was found with given ID ${error}`);
       } finally {
         setLoading(false);
       }

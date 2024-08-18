@@ -2,26 +2,24 @@ import React from "react";
 import "./index.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/Home";
-import CurrentlyShowingPage from "./pages/CurrentlyShowingPage";
-import BuyTickets from "./pages/BuyTickets";
+
+import { AuthProvider } from "./context/AuthContext";
+import Routes from "./Routes";
+import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
   return (
-    <Router>
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/currentlyshowing" element={<CurrentlyShowingPage />} />
-            <Route path="/gettickets" element={<BuyTickets />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <BrowserRouter>
+      <AuthProvider>
+        <div className="min-h-screen flex flex-col">
+          <Navbar />
+          <main className="flex-grow">
+            <Routes />
+          </main>
+          <Footer />
+        </div>
+      </AuthProvider>
+    </BrowserRouter>
   );
 };
 

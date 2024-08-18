@@ -18,8 +18,7 @@ const ShowtimeUpdate: React.FC<UpdateShowtimeByID> = ({ id }) => {
         const data = await getShowtimeByID(id);
         setShowtime(data);
       } catch (error) {
-        console.log(error);
-        setError("Failed to get showtime by ID");
+        setError(`Failed to get showtime by ID ${error}`);
       } finally {
         setLoading(false);
       }

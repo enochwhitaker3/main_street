@@ -68,8 +68,7 @@ const CreatePlayComponent: React.FC<InputProps> = ({ PassedPlay }) => {
           await createPlay(PUC);
           setMessage("Success!");
         } catch (error) {
-          setMessage("Failed to update");
-          console.log(error);
+          setMessage(`Failed to update ${error}`);
         } finally {
           setLoading(false);
           setTriggerCreate(false);

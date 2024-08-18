@@ -15,8 +15,7 @@ const CastMemberDelete: React.FC<CastMemberDeleteProps> = ({ id }) => {
         const data = await deleteCastMemberByID(id);
         setMessage(data);
       } catch (error) {
-        console.log(error);
-        setMessage("No cast member was found with given ID");
+        setMessage(`No cast member was found with given ID ${error}`);
       } finally {
         setLoading(false);
       }

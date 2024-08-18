@@ -22,7 +22,6 @@ export const getAllCastMembers = async (): Promise<CastType[]> => {
       })
     );
 
-    console.table(mappedCastMembers);
     return mappedCastMembers;
   } catch (error) {
     console.error("Sample error:", error);
@@ -58,7 +57,6 @@ export const getAllCastMemebersByPlayID = async (
       })
     );
 
-    console.table(mappedCastMemebers);
     return mappedCastMemebers;
   } catch (error) {
     console.error("Sample error:", error);
@@ -89,7 +87,6 @@ export const getCastMemberByID = async (id: number): Promise<CastType> => {
       full_name: returned_cast_member.value[0].full_name,
     };
 
-    console.table(mappedCastMemeber);
     return mappedCastMemeber;
   } catch (error) {
     console.error("Sample error:", error);

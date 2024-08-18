@@ -69,8 +69,7 @@ const UpdatePlayComponent: React.FC<InputProps> = ({ PassedPlay }) => {
           await updatePlayByID(PUC);
           setMessage("Success!");
         } catch (error) {
-          setMessage("Failed to update");
-          console.log(error);
+          setMessage(`Failed to update ${error}`);
         } finally {
           setLoading(false);
           setTriggerUpdate(false);

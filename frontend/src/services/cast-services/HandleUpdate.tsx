@@ -46,8 +46,7 @@ const UpdateCastMemberComponent: React.FC<InputProps> = ({
           await updateCastMemberByID(CMUC);
           setMessage("Success!");
         } catch (error) {
-          setMessage("Failed to update");
-          console.log(error);
+          setMessage(`Failed to update ${error}`);
         } finally {
           setLoading(false);
           setTriggerUpdate(false);

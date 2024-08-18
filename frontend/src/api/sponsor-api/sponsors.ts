@@ -23,7 +23,6 @@ export const getAllSponsors = async (): Promise<SponsorType[]> => {
       })
     );
 
-    console.table(mappedSponsors);
     return mappedSponsors;
   } catch (error) {
     console.error("Sample error:", error);
@@ -55,7 +54,6 @@ export const getSponsorByID = async (id: number): Promise<SponsorType> => {
       sponsor_phonenumber: returned_sponsor.value[0].sponsor_phonenumber,
     };
 
-    console.table(mappedSponsor);
     return mappedSponsor;
   } catch (error) {
     console.error("Sample error:", error);
