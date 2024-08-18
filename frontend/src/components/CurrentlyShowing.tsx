@@ -4,9 +4,12 @@ import { PlayType } from "../../types/plays";
 import LoaderComponent from "./LoaderComponent";
 import DisplayPoster from "./DisplayPoster";
 import { InvertedTicketButton } from "./TicketButton";
+import { getSponsorById } from "../api/sponsor-api/SponsorsGet";
+import { SponsorType } from "../../types/sponsors";
 
 const CurrentlyShowing = () => {
   const [play, setPlay] = useState<PlayType>();
+  const [sponsor, setSponsor] = useState<SponsorType>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -33,9 +36,24 @@ const CurrentlyShowing = () => {
         setLoading(false);
       }
     };
-
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const fetchSponsor = async () => {
+      if (play != undefined && play.sponsor_id != null) {
+        try {
+          const result2 = await getSponsorById(play.sponsor_id);
+          setSponsor(result2);
+        } catch (err) {
+          console.error("Failed to load sponsor:", err);
+          setError("Failed to load sponsor");
+        }
+      }
+    };
+
+    fetchSponsor();
+  }, [play]);
 
   if (play == undefined) {
     return (
@@ -76,12 +94,17 @@ const CurrentlyShowing = () => {
               <span className="flex flex-col sm:text-xl md:text-xl xl:text-[1.7rem] text-xl text-blackolive">
                 Directed by: {play.director}
               </span>
+              { sponsor ? 
+                <span className="flex flex-col sm:text-xl md:text-xl xl:text-[1.7rem] text-xl text-blackolive">
+                  Sponsor: {sponsor?.sponsor_name}
+                </span> : ""
+              }
               <span className="flex flex-col sm:text-xl md:text-xl xl:text-[1.7rem] text-xl text-blackolive">
                 {startDate} - {end_date}
               </span>
-              <div className="flex sm:justify-start justify-center pt-4">
 
-                  <InvertedTicketButton />
+              <div className="flex sm:justify-start justify-center pt-4">
+                <InvertedTicketButton />
               </div>
             </h1>
           </>

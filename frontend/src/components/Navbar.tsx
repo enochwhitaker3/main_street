@@ -20,7 +20,7 @@ const Navbar = () => {
       </Link>
 
       <nav className="hidden sm:flex justify-between xl:w-2/6 lg:w-2/5 md:w-1/2 sm:w-3/5 2xl:text-xl xl:texl-lg lg:text-base md:text-sm sm:text-xs">
-        <a
+        <div
           className={`${
             pathname == "/currentlyshowing"
               ? `link-underline-teal-perm`
@@ -28,8 +28,8 @@ const Navbar = () => {
           } text-creame cursor-pointer`}
         >
           <Link to="/currentlyshowing">Currently Showing</Link>
-        </a>
-        <a
+        </div>
+        <div
           className={`${
             pathname == "/gettickets"
               ? `link-underline-sky-perm`
@@ -37,8 +37,8 @@ const Navbar = () => {
           } text-creame cursor-pointer`}
         >
           <Link to="/gettickets">Tickets</Link>
-        </a>
-        <a
+        </div>
+        <div
           className={`${
             pathname == "/aboutus"
               ? `link-underline-teal-perm`
@@ -46,8 +46,8 @@ const Navbar = () => {
           } text-creame cursor-pointer`}
         >
           <Link to="/aboutus">About Us</Link>
-        </a>
-        <a
+        </div>
+        <div
           className={`${
             pathname == "/contactus"
               ? `link-underline-sky-perm`
@@ -55,7 +55,7 @@ const Navbar = () => {
           } text-creame cursor-pointer`}
         >
           Contact Us
-        </a>
+        </div>
       </nav>
       <div className="block sm:hidden">
         <HiOutlineMenu
@@ -70,7 +70,7 @@ const Navbar = () => {
         }`}
         style={{ transition: "transform 0.3s ease, opacity 0.3s ease" }}
       >
-        <a
+        <div
           className={`${
             pathname == "/currentlyshowing"
               ? `link-underline-teal-perm`
@@ -78,8 +78,8 @@ const Navbar = () => {
           } text-creame cursor-pointer`}
         >
           <Link to="/currentlyshowing">Currently Showing</Link>
-        </a>
-        <a
+        </div>
+        <div
           className={`${
             pathname == "/gettickets"
               ? `link-underline-sky-perm`
@@ -87,8 +87,8 @@ const Navbar = () => {
           } text-creame cursor-pointer`}
         >
           <Link to="/gettickets">Tickets</Link>
-        </a>
-        <a
+        </div>
+        <div
           className={`${
             pathname == "/aboutus"
               ? `link-underline-teal-perm`
@@ -96,8 +96,8 @@ const Navbar = () => {
           } text-creame cursor-pointer`}
         >
           <Link to="/aboutus">About Us</Link>
-        </a>
-        <a
+        </div>
+        <div
           className={`${
             pathname == "/contactus"
               ? `link-underline-sky-perm`
@@ -105,7 +105,14 @@ const Navbar = () => {
           } text-creame cursor-pointer`}
         >
           <Link to="/contactus">Contact Us</Link>
-        </a>
+        </div>
+        <div
+          className={`${
+            pathname == "/contactus"
+              ? `link-underline-sky-perm`
+              : `link-underline link-underline-sky`
+          } text-creame cursor-pointer`}
+        ></div>
       </div>
     </div>
   );

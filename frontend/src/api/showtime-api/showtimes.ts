@@ -52,8 +52,6 @@ export const getAllShowtimesByPlayID = async (
       (showtime) => showtime.play_id === playId
     );
 
-    console.log("Filtered Showtimes:", filteredShowtimes);
-
     const mappedShowtimes: ShowtimeType[] = filteredShowtimes.map(
       (item: ShowtimeType) => ({
         id: item.id,
@@ -199,7 +197,6 @@ export const deleteShowtimeByID = async (id: number): Promise<string> => {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const returned_showtime: ApiShowtimeResponse = await response.json();
-    console.log(returned_showtime);
 
     if (returned_showtime.value.length === 0) {
       throw new Error("No showtime found with the given ID");

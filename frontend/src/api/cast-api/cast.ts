@@ -50,8 +50,6 @@ export const getAllCastMemebersByPlayID = async (
       (castMember) => castMember.play_id === playId
     );
 
-    console.log("Filtered Cast Members:", filteredCastMembers);
-
     const mappedCastMemebers: CastType[] = filteredCastMembers.map(
       (item: CastType) => ({
         id: item.id,
@@ -192,7 +190,6 @@ export const deleteCastMemberByID = async (id: number): Promise<string> => {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const returned_cast_member: ApiCastResponse = await response.json();
-    console.log(returned_cast_member);
 
     if (returned_cast_member.value.length === 0) {
       throw new Error("No cast member found with the given ID");

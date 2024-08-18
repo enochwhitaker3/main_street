@@ -155,7 +155,6 @@ export const deleteSponsorByID = async (id: number): Promise<string> => {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const returned_sponsor: ApiSponsorResponse = await response.json();
-    console.log(returned_sponsor);
 
     if (returned_sponsor.value.length === 0) {
       throw new Error("No sponsor found with the given ID");

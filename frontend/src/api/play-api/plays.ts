@@ -163,7 +163,6 @@ export const deletePlayByID = async (id: number): Promise<string> => {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const returned_plays: ApiPlayResponse = await response.json();
-    console.log(returned_plays);
 
     if (returned_plays.value.length === 0) {
       throw new Error("No play found with the given ID");

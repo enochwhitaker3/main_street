@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import NumberInputComponent from "../services/Shared/HandleNumberInput";
-import SponsorsList from "../api/sponsor-api/SponsorList";
-import SponsorsGet from "../api/sponsor-api/SponsorGet";
-import SponsorsUpdate from "../api/sponsor-api/SponsorUpdate";
-import SponsorCreate from "../api/sponsor-api/SponsorCreate";
-import SponsorDelete from "../api/sponsor-api/SponsorDelete";
+import { SponsorsList } from "../api/sponsor-api/SponsorSwagger";
+import { SponsorsUpdate } from "../api/sponsor-api/SponsorSwagger";
+import { SponsorCreate } from "../api/sponsor-api/SponsorSwagger";
+import { SponsorDelete } from "../api/sponsor-api/SponsorSwagger";
+import { SponsorsGet } from "../api/sponsor-api/SponsorSwagger";
 
 const SponsorsTest: React.FC = () => {
   const [showList, setShowList] = useState(false);

@@ -22,7 +22,6 @@ const NumberInputComponent: React.FC<InputProps> = ({ message, PassedComponent }
 
   const handleButtonClick = () => {
     if (inputValue !== undefined) {
-      console.log(`You entered the number: ${inputValue}`);
       setID(inputValue);
     } else {
       alert("Please enter a valid number.");
