@@ -14,6 +14,7 @@ const AdminLogin = () => {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(password);
+    console.log(SET_PASSWORD);
     if (password === SET_PASSWORD) {
       setAuthenticated(true);
       navigate("/admin");
