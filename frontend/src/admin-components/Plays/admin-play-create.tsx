@@ -158,7 +158,6 @@ const AdminPlayCreate = () => {
           isValid = false;
         }
       });
-      setPlayDateError(null);
     }
 
     if (dateError) {
@@ -171,6 +170,7 @@ const AdminPlayCreate = () => {
   const submitNewPlay = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
+      setPlayDateError(null)
       try {
         showtimes.forEach((showtime) => {
           createShowtimeService(showtime);
