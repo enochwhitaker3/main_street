@@ -4,7 +4,6 @@ import { AuthContext } from "../context/AuthContext";
 
 const AdminLogin = () => {
   const SET_PASSWORD = process.env.REACT_APP_MSP_PASSWORD;
-  console.log("PASSWORD:", SET_PASSWORD);
 
   const [password, setPassword] = useState<string>("");
 
@@ -14,8 +13,6 @@ const AdminLogin = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(password);
-    console.log("SET PASSWORD:", SET_PASSWORD);
     if (password === SET_PASSWORD) {
       setAuthenticated(true);
       navigate("/admin");
