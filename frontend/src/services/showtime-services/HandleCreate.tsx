@@ -11,9 +11,8 @@ const CreateShowtimeComponent: React.FC<InputProps> = ({ PassedShowtime }) => {
   const [triggerCreate, setTriggerCreate] = useState<boolean>(false);
   const [loading, setLoading] = useState(false);
   const [playIDValue, setPlayIDValue] = useState<number>();
-  const [doorsOpenValue, setDoorsOpenValue] = useState<Date>();
-  const [startTimeValue, setStartTimeValue] = useState<Date>();
-  const [endTimeValue, setEndTimeValue] = useState<Date>();
+  const [startTimeValue, setStartTimeValue] = useState<string>("");
+  const [playDateValue, setPlayDateValue] = useState<Date>();
 
   const handlePlayIDChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const numericValue = parseInt(event.target.value, 10);
@@ -24,23 +23,13 @@ const CreateShowtimeComponent: React.FC<InputProps> = ({ PassedShowtime }) => {
     }
   };
 
-  const handleDoorsOpenChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const dateValue = new Date(event.target.value);
-    setDoorsOpenValue(dateValue);
+  const handleStartTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setStartTimeValue(event.target.value);
   };
 
-  const handleStartTimeChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handlePlayDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const dateValue = new Date(event.target.value);
-    setStartTimeValue(dateValue);
-  };
-
-  const handleEndTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const dateValue = new Date(event.target.value);
-    setEndTimeValue(dateValue);
+    setPlayDateValue(dateValue);
   };
 
   const handleButtonClick = () => {
@@ -51,9 +40,8 @@ const CreateShowtimeComponent: React.FC<InputProps> = ({ PassedShowtime }) => {
     if (triggerCreate && PassedShowtime) {
       const SUC: Omit<ShowtimeType, "id"> = {
         play_id: playIDValue || PassedShowtime.play_id,
-        doors_open: doorsOpenValue || PassedShowtime.doors_open,
+        play_date: playDateValue || PassedShowtime.play_date,
         start_time: startTimeValue || PassedShowtime.start_time,
-        end_time: endTimeValue || PassedShowtime.end_time,
       };
 
       const fetchShowtimes = async () => {
@@ -75,9 +63,8 @@ const CreateShowtimeComponent: React.FC<InputProps> = ({ PassedShowtime }) => {
     triggerCreate,
     PassedShowtime,
     playIDValue,
-    doorsOpenValue,
     startTimeValue,
-    endTimeValue,
+    playDateValue,
   ]);
 
   if (loading) return <p>Loading...</p>;
@@ -90,34 +77,20 @@ const CreateShowtimeComponent: React.FC<InputProps> = ({ PassedShowtime }) => {
         placeholder={"Play ID"}
       />
       <input
-        type="date"
-        value={
-          doorsOpenValue !== undefined
-            ? doorsOpenValue.toISOString().substring(0, 10)
-            : ""
-        }
-        onChange={handleDoorsOpenChange}
-        placeholder={"Doors Open"}
-      />
-      <input
-        type="date"
-        value={
-          startTimeValue !== undefined
-            ? startTimeValue.toISOString().substring(0, 10)
-            : ""
-        }
+        type="string"
+        value={startTimeValue === undefined ? "" : startTimeValue}
         onChange={handleStartTimeChange}
-        placeholder={"Start Time"}
+        placeholder={PassedShowtime?.start_time}
       />
       <input
         type="date"
         value={
-          endTimeValue !== undefined
-            ? endTimeValue.toISOString().substring(0, 10)
+          playDateValue !== undefined
+            ? playDateValue.toISOString().substring(0, 10)
             : ""
         }
-        onChange={handleEndTimeChange}
-        placeholder={"End Time"}
+        onChange={handlePlayDateChange}
+        placeholder={"Play Date"}
       />
       <button onClick={handleButtonClick}>Submit</button>
       {message}

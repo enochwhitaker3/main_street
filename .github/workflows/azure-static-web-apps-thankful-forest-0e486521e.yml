@@ -34,6 +34,10 @@ jobs:
           ###### End of Repository/Build Configurations ######
         env:
           REACT_APP_MSP_PASSWORD: ${{secrets.MSP_PASSWORD}}
+          REACT_APP_PLAYS_ENDPOINT: ${{secrets.PLAYS_ENDPOINT}}
+          REACT_APP_SPONSORS_ENDPOINT: ${{secrets.SPONSOR_ENDPOINT}}
+          REACT_APP_SHOWTIMES_ENDPOINT: ${{secrets.SHOWTIME_ENDPOINT}}
+          REACT_APP_CAST_ENDPOINT: ${{secrets.CAST_ENDPOINT}}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'

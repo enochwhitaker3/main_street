@@ -6,6 +6,10 @@ import CurrentlyShowingPage from "./pages/CurrentlyShowingPage";
 import BuyTickets from "./pages/BuyTickets";
 import AdminLogin from "./admin-components/admin-login";
 import AdminHome from "./admin-pages/AdminHome";
+import AdminPlays from "./admin-pages/AdminPlays";
+import AdminPlayAdd from "./admin-pages/AdminPlayAdd";
+import AdminPlayEdit from "./admin-pages/AdminPlayEdit";
+import AdminPlayDelete from "./admin-pages/AdminPlayDelete";
 
 const PrivateRoutes = () => {
   const { authenticated } = useContext(AuthContext);
@@ -24,6 +28,10 @@ const Routes = () => {
       <Route path="/adminlogin" element={<AdminLogin />} />
       <Route element={<PrivateRoutes />}>
         <Route path="/admin" element={<AdminHome />} />
+        <Route path="/adminplays" element={<AdminPlays />} />
+        <Route path="/adminplaysadd" element={<AdminPlayAdd />} />
+        <Route path="/adminplaysedit" element={<AdminPlayEdit />} />
+        <Route path="/adminplaysdelete" element={<AdminPlayDelete />} />
       </Route>
     </Router>
   );

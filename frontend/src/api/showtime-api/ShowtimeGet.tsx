@@ -33,7 +33,7 @@ const ShowtimesGet: React.FC<ShowtimeGetProps> = ({ id }) => {
       <>
         <h4>Returned showtime with Id: {showtime?.id}</h4>
         <li key={showtime?.id}>
-        {`Doors Open: ${showtime?.doors_open} | Start Time: ${showtime?.start_time} | End Time: ${showtime?.end_time} `}
+        {` Date: ${showtime?.play_date} | Start Time: ${showtime?.start_time}`}
         </li>
       </>
     </ul>

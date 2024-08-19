@@ -18,9 +18,8 @@ export const getAllShowtimes = async (): Promise<ShowtimeType[]> => {
       (item) => ({
         id: item.id,
         play_id: item.play_id,
-        doors_open: item.doors_open,
         start_time: item.start_time,
-        end_time: item.end_time,
+        play_date: item.play_date
       })
     );
 
@@ -55,9 +54,8 @@ export const getAllShowtimesByPlayID = async (
       (item: ShowtimeType) => ({
         id: item.id,
         play_id: item.play_id,
-        doors_open: item.doors_open,
         start_time: item.start_time,
-        end_time: item.end_time,
+        play_date: item.play_date
       })
     );
 
@@ -88,9 +86,8 @@ export const getShowtimeByID = async (id: number): Promise<ShowtimeType> => {
     const mappedShowtime: ShowtimeType = {
       id: returned_showtime.value[0].id,
       play_id: returned_showtime.value[0].play_id,
-      doors_open: returned_showtime.value[0].doors_open,
+      play_date: returned_showtime.value[0].play_date,
       start_time: returned_showtime.value[0].start_time,
-      end_time: returned_showtime.value[0].end_time,
     };
 
     return mappedShowtime;
@@ -122,9 +119,8 @@ export const updateShowtimeByID = async (
 
     const tempShowtime: Omit<ShowtimeType, "id"> = {
       play_id: showtime.play_id,
-      doors_open: showtime.doors_open,
+      play_date: showtime.play_date,
       start_time: showtime.start_time,
-      end_time: showtime.end_time,
     };
 
     const updateShowtimeResponse = await fetch(`${API_URL}/id/${showtime.id}`, {
@@ -158,9 +154,8 @@ export const createShowtime = async (
   try {
     const tempShowtime: Omit<ShowtimeType, "id"> = {
       play_id: showtime.play_id,
-      doors_open: showtime.doors_open,
+      play_date: showtime.play_date,
       start_time: showtime.start_time,
-      end_time: showtime.end_time,
     };
 
     const createShowtimeResponse = await fetch(`${API_URL}/`, {

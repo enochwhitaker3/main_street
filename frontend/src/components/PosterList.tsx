@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { PlayType } from "../../types/plays";
 import { TicketButton } from "./TicketButton";
 import { Link } from "react-router-dom";
+import defaultPoster from "../images/default-poster.svg"
 
 interface PosterProps {
   play: PlayType;
@@ -43,7 +44,6 @@ const Poster: React.FC<PosterProps> = ({ play }) => {
 
   const handleMouseEnter = () => {
     if (window.innerWidth > 640) {
-      // 640px corresponds to the 'sm' breakpoint in Tailwind
       setIsHovered(true);
     }
   };
@@ -64,7 +64,7 @@ const Poster: React.FC<PosterProps> = ({ play }) => {
           onMouseLeave={() => handleMouseLeave()}
         >
           <img
-            src={play.poster}
+            src={play.poster == "" || null ? defaultPoster : play.poster}
             alt="movie poster"
             className="rounded-lg 2xl:h-[30rem] xl:h-[25rem] lg:h-[22rem] md:h-[18rem] sm:h-[14rem] h-[20rem] w-full object-cover"
           />

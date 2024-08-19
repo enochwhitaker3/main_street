@@ -1,7 +1,12 @@
 import React from "react";
+import AdminHub from "../admin-components/admin-hub";
 
 const AdminHome = () => {
-  return <div>Admin Home</div>;
+  return (
+    <div>
+      <AdminHub />
+    </div>
+  );
 };
 
 export default AdminHome;

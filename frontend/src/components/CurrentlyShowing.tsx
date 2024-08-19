@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getPlayByDate } from "../api/play-api/PlaysGet";
+import { getPlayByDate } from "../api/play-api/PlaysService";
 import { PlayType } from "../../types/plays";
 import LoaderComponent from "./LoaderComponent";
 import DisplayPoster from "./DisplayPoster";
@@ -94,11 +94,13 @@ const CurrentlyShowing = () => {
               <span className="flex flex-col sm:text-xl md:text-xl xl:text-[1.7rem] text-xl text-blackolive">
                 Directed by: {play.director}
               </span>
-              { sponsor ? 
+              {sponsor ? (
                 <span className="flex flex-col sm:text-xl md:text-xl xl:text-[1.7rem] text-xl text-blackolive">
                   Sponsor: {sponsor?.sponsor_name}
-                </span> : ""
-              }
+                </span>
+              ) : (
+                ""
+              )}
               <span className="flex flex-col sm:text-xl md:text-xl xl:text-[1.7rem] text-xl text-blackolive">
                 {startDate} - {end_date}
               </span>

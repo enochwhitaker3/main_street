@@ -5,9 +5,8 @@ import CreateShowtimeComponent from "../../services/showtime-services/HandleCrea
 const ShowtimeCreate: React.FC = () => {
   const tempShowtime: Omit<ShowtimeType, "id"> = {
     play_id: 1,
-    doors_open: new Date(),
-    start_time: new Date(),
-    end_time: new Date()
+    start_time: "",
+    play_date: new Date(),
   };
 
   return (

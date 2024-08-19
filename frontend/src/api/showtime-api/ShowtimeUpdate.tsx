@@ -34,7 +34,7 @@ const ShowtimeUpdate: React.FC<UpdateShowtimeByID> = ({ id }) => {
       <>
         <h4>Showtime with Id: {showtime?.id}</h4>
         <li key={showtime?.id}>
-          {`Doors Open: ${showtime?.doors_open} | Start Time: ${showtime?.start_time} | End Time: ${showtime?.end_time} `}
+          {` Date: ${showtime?.play_date} | Start Time: ${showtime?.start_time}`}
         </li>
       </>
       <h4>What do you want to update?</h4>

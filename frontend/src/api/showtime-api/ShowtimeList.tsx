@@ -29,7 +29,7 @@ const ShowtimeList: React.FC = () => {
       <h4>All Showtimes</h4>
       {showtimes.map((showtime) => (
         <li key={showtime.id}>
-          {`Doors Open: ${showtime.doors_open} | Start Time: ${showtime.start_time} | End Time: ${showtime.end_time} `}
+          {` Date: ${showtime?.play_date} | Start Time: ${showtime?.start_time}`}
         </li>
       ))}
     </ul>

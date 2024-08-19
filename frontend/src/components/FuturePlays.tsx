@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Poster from "./PosterList";
-import { getPlays } from "../api/play-api/PlaysGet";
+import { getPlays } from "../api/play-api/PlaysService";
 import { PlayType } from "../../types/plays";
 import LoaderComponent from "./LoaderComponent";
 
