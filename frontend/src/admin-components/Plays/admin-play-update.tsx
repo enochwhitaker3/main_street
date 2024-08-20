@@ -10,7 +10,7 @@ import {
   getShowtimeByPlayIdService,
 } from "../../api/showtime-api/ShowtimeService";
 
-const AdminPlayCreate = () => {
+const AdminPlayUpdate = () => {
   const [selectedPlay, setSelectedPlay] = useState("");
   const [selectedPlayObject, setSelectedPlayObject] = useState<PlayType | null>(
     null
@@ -261,9 +261,9 @@ const AdminPlayCreate = () => {
 
       const result = await updatePlayService(play);
       if (result) {
-        setSuccessMessage("Successfully added play!");
+        setSuccessMessage("Successfully update play!");
       } else {
-        setError("Unable to add play");
+        setError("Unable to update play");
       }
     }
   };
@@ -478,4 +478,4 @@ const AdminPlayCreate = () => {
   );
 };
 
-export default AdminPlayCreate;
+export default AdminPlayUpdate;
