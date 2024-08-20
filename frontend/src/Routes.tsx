@@ -36,11 +36,11 @@ const Routes = () => {
         <Route path="/adminplaysadd" element={<AdminPlayAdd />} />
         <Route path="/adminplaysedit" element={<AdminPlayEdit />} />
         <Route path="/adminplaysdelete" element={<AdminPlayDelete />} />
+        <Route path="/adminsponsors" element={<AdminSponsors />} />
+        <Route path="/adminsponsorsadd" element={<AdminSponsorAdd />} />
+        <Route path="/adminsponsorsedit" element={<AdminSponsorEdit />} />
+        <Route path="/adminsponsorsdelete" element={<AdminSponsorDelete />} />
       </Route>
-      <Route path="/adminsponsors" element={<AdminSponsors />} />
-      <Route path="/adminsponsorsadd" element={<AdminSponsorAdd />} />
-      <Route path="/adminsponsorsedit" element={<AdminSponsorEdit />} />
-      <Route path="/adminsponsorsdelete" element={<AdminSponsorDelete />} />
     </Router>
   );
 };
