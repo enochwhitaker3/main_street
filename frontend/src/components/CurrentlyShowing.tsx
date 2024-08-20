@@ -4,7 +4,7 @@ import { PlayType } from "../../types/plays";
 import LoaderComponent from "./LoaderComponent";
 import DisplayPoster from "./DisplayPoster";
 import { InvertedTicketButton } from "./TicketButton";
-import { getSponsorById } from "../api/sponsor-api/SponsorsGet";
+import { getSponsorById } from "../api/sponsor-api/SponsorsService";
 import { SponsorType } from "../../types/sponsors";
 
 const CurrentlyShowing = () => {
@@ -29,6 +29,7 @@ const CurrentlyShowing = () => {
       try {
         const result = await getPlayByDate();
         setPlay(result.plays);
+        setLoading(false);
       } catch (err) {
         setError(`Failed to load play ${err}`);
         setLoading(false);

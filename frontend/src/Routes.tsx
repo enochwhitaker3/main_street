@@ -6,10 +6,14 @@ import CurrentlyShowingPage from "./pages/CurrentlyShowingPage";
 import BuyTickets from "./pages/BuyTickets";
 import AdminLogin from "./admin-components/admin-login";
 import AdminHome from "./admin-pages/AdminHome";
-import AdminPlays from "./admin-pages/AdminPlays";
-import AdminPlayAdd from "./admin-pages/AdminPlayAdd";
-import AdminPlayEdit from "./admin-pages/AdminPlayEdit";
-import AdminPlayDelete from "./admin-pages/AdminPlayDelete";
+import AdminPlays from "./admin-pages/Plays/AdminPlays";
+import AdminPlayAdd from "./admin-pages/Plays/AdminPlayAdd";
+import AdminPlayEdit from "./admin-pages/Plays/AdminPlayEdit";
+import AdminPlayDelete from "./admin-pages/Plays/AdminPlayDelete";
+import AdminSponsors from "./admin-pages/Sponsors/AdminSponsors";
+import AdminSponsorAdd from "./admin-pages/Sponsors/AdminSponsorAdd";
+import AdminSponsorEdit from "./admin-pages/Sponsors/AdminSponsorEdit";
+import AdminSponsorDelete from "./admin-pages/Sponsors/AdminSponsorDelete";
 
 const PrivateRoutes = () => {
   const { authenticated } = useContext(AuthContext);
@@ -33,6 +37,10 @@ const Routes = () => {
         <Route path="/adminplaysedit" element={<AdminPlayEdit />} />
         <Route path="/adminplaysdelete" element={<AdminPlayDelete />} />
       </Route>
+      <Route path="/adminsponsors" element={<AdminSponsors />} />
+      <Route path="/adminsponsorsadd" element={<AdminSponsorAdd />} />
+      <Route path="/adminsponsorsedit" element={<AdminSponsorEdit />} />
+      <Route path="/adminsponsorsdelete" element={<AdminSponsorDelete />} />
     </Router>
   );
 };

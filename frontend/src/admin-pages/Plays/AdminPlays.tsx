@@ -1,10 +1,10 @@
 import React from "react";
-import AdminPlayEditor from "../admin-components/Plays/admin-plays";
+import AdminPlayComponent from "../../admin-components/Plays/admin-plays";
 
 const AdminPlays = () => {
   return (
     <div>
-      <AdminPlayEditor />
+      <AdminPlayComponent />
     </div>
   );
 };

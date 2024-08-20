@@ -77,13 +77,13 @@ const UpdateSponsorComponent: React.FC<InputProps> = ({ PassedSponsors }) => {
         type="string"
         value={addressValue === undefined ? "" : addressValue}
         onChange={handleAddressChange}
-        placeholder={PassedSponsors?.sponsor_address}
+        placeholder={"PassedSponsors?.sponsor_address"}
       />
       <input
         type="string"
         value={phoneNumberValue === undefined ? "" : phoneNumberValue}
         onChange={handlePhoneNumberChange}
-        placeholder={PassedSponsors?.sponsor_phonenumber}
+        placeholder={"Phone Number"}
       />
       <button onClick={handleButtonClick}>Submit</button>
       {message}

@@ -26,6 +26,18 @@
       },
       {
         "route": "/adminplaysdelete"
+      },
+      {
+        "route": "/adminsponsors"
+      },
+      {
+        "route": "/adminsponsorsadd"
+      },
+      {
+        "route": "/adminsponsorsedit"
+      },
+      {
+        "route": "/adminsponsorsdelete"
       }
     ]
   }

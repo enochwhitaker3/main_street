@@ -70,49 +70,53 @@ const Navbar = () => {
         }`}
         style={{ transition: "transform 0.3s ease, opacity 0.3s ease" }}
       >
-        <div
-          className={`${
-            pathname == "/currentlyshowing"
-              ? `link-underline-teal-perm`
-              : `link-underline link-underline-teal`
-          } text-creame cursor-pointer`}
-        >
-          <Link to="/currentlyshowing">Currently Showing</Link>
-        </div>
-        <div
-          className={`${
-            pathname == "/gettickets"
-              ? `link-underline-sky-perm`
-              : `link-underline link-underline-sky`
-          } text-creame cursor-pointer`}
-        >
-          <Link to="/gettickets">Tickets</Link>
-        </div>
-        <div
-          className={`${
-            pathname == "/aboutus"
-              ? `link-underline-teal-perm`
-              : `link-underline link-underline-teal`
-          } text-creame cursor-pointer`}
-        >
-          <Link to="/aboutus">About Us</Link>
-        </div>
-        <div
-          className={`${
-            pathname == "/contactus"
-              ? `link-underline-sky-perm`
-              : `link-underline link-underline-sky`
-          } text-creame cursor-pointer`}
-        >
-          <Link to="/contactus">Contact Us</Link>
-        </div>
-        <div
-          className={`${
-            pathname == "/contactus"
-              ? `link-underline-sky-perm`
-              : `link-underline link-underline-sky`
-          } text-creame cursor-pointer`}
-        ></div>
+        {isMenuOpen && (
+          <>
+            <div
+              className={`${
+                pathname == "/currentlyshowing"
+                  ? `link-underline-teal-perm`
+                  : `link-underline link-underline-teal`
+              } text-creame cursor-pointer`}
+            >
+              <Link to="/currentlyshowing">Currently Showing</Link>
+            </div>
+            <div
+              className={`${
+                pathname == "/gettickets"
+                  ? `link-underline-sky-perm`
+                  : `link-underline link-underline-sky`
+              } text-creame cursor-pointer`}
+            >
+              <Link to="/gettickets">Tickets</Link>
+            </div>
+            <div
+              className={`${
+                pathname == "/aboutus"
+                  ? `link-underline-teal-perm`
+                  : `link-underline link-underline-teal`
+              } text-creame cursor-pointer`}
+            >
+              <Link to="/aboutus">About Us</Link>
+            </div>
+            <div
+              className={`${
+                pathname == "/contactus"
+                  ? `link-underline-sky-perm`
+                  : `link-underline link-underline-sky`
+              } text-creame cursor-pointer`}
+            >
+              <Link to="/contactus">Contact Us</Link>
+            </div>
+            <div
+              className={`${
+                pathname == "/contactus"
+                  ? `link-underline-sky-perm`
+                  : `link-underline link-underline-sky`
+              } text-creame cursor-pointer`}
+            ></div>
+          </>
+        )}
       </div>
     </div>
   );

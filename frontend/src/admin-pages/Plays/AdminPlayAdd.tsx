@@ -1,10 +1,10 @@
 import React from "react";
-import AdminPlayCreate from "../admin-components/Plays/admin-play-create";
+import AdminPlayCreate from "../../admin-components/Plays/admin-play-create";
 
 const AdminPlayAdd = () => {
   return (
     <div>
-      <AdminPlayCreate/>
+      <AdminPlayCreate />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getSponsors } from "../../api/sponsor-api/SponsorsGet";
+import { getSponsors } from "../../api/sponsor-api/SponsorsService";
 import { SponsorType } from "../../../types/sponsors";
 import { PlayType } from "../../../types/plays";
 import { getPlays, updatePlayService } from "../../api/play-api/PlaysService";
@@ -235,6 +235,7 @@ const AdminPlayUpdate = () => {
   };
   console.log(showtimes);
   const submitNewPlay = async (e: React.FormEvent) => {
+    setSuccessMessage(null)
     e.preventDefault();
     if (validateForm() && selectedPlayObject) {
       setPlayDateError(null);

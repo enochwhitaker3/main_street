@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getSponsors } from "../../api/sponsor-api/SponsorsGet";
+import { getSponsors } from "../../api/sponsor-api/SponsorsService";
 import { SponsorType } from "../../../types/sponsors";
 import { PlayType } from "../../../types/plays";
 import { createPlayService, getPlays } from "../../api/play-api/PlaysService";
@@ -168,9 +168,10 @@ const AdminPlayCreate = () => {
   };
 
   const submitNewPlay = async (e: React.FormEvent) => {
+    setSuccessMessage(null)
     e.preventDefault();
     if (validateForm()) {
-      setPlayDateError(null)
+      setPlayDateError(null);
       try {
         showtimes.forEach((showtime) => {
           createShowtimeService(showtime);
