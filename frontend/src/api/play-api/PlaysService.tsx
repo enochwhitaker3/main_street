@@ -1,6 +1,6 @@
 // api/play-api/PlaysGet.ts
 import { PlayType } from "../../../types/plays";
-import { createPlay, getAllPlays } from "./plays";
+import { createPlay, getAllPlays, updatePlayByID } from "./plays";
 
 // Function to create a delay
 // const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
@@ -36,6 +36,16 @@ export const getPlayByDate = async (): Promise<{ plays: PlayType }> => {
 export const createPlayService = async (play: Omit<PlayType, "id">): Promise<boolean> => {
   try {
     await createPlay(play);
+    return true
+  } catch (error) {
+    console.error("Failed to load plays:", error);
+    throw new Error("Failed to load plays");
+  }
+};
+
+export const updatePlayService = async (play: PlayType): Promise<boolean> => {
+  try {
+    await updatePlayByID(play);
     return true
   } catch (error) {
     console.error("Failed to load plays:", error);

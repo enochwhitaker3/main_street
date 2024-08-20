@@ -19,7 +19,7 @@ export const getAllShowtimes = async (): Promise<ShowtimeType[]> => {
         id: item.id,
         play_id: item.play_id,
         start_time: item.start_time,
-        play_date: item.play_date
+        play_date: item.play_date,
       })
     );
 
@@ -55,7 +55,7 @@ export const getAllShowtimesByPlayID = async (
         id: item.id,
         play_id: item.play_id,
         start_time: item.start_time,
-        play_date: item.play_date
+        play_date: item.play_date,
       })
     );
 
@@ -177,7 +177,7 @@ export const createShowtime = async (
   }
 };
 
-export const deleteShowtimeByID = async (id: number): Promise<string> => {
+export const deleteShowtimeByID = async (id: number): Promise<boolean> => {
   if (!API_URL) {
     throw new Error(
       "Cannot update showtime by ID, the API route is not defined properly"
@@ -199,14 +199,47 @@ export const deleteShowtimeByID = async (id: number): Promise<string> => {
     });
 
     if (deleteResponse.status === 404) {
-      return "Showtime not found, or already deleted.";
+      return false;
     } else if (!deleteResponse.ok) {
       throw new Error(
         `Failed to delete showtime. Status: ${deleteResponse.status}`
       );
     }
 
-    return "Deleted Successfully!";
+    return true;
+  } catch (error) {
+    console.error("Sample error:", error);
+    throw error;
+  }
+};
+
+export const deleteAllShowtimesByPlayID = async (
+  playId: number
+): Promise<boolean> => {
+  if (!API_URL) {
+    throw new Error("The API route is not defined");
+  }
+
+  try {
+    const response = await fetch(API_URL);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const { value }: { value: ShowtimeType[] } = await response.json();
+
+    const filteredShowtimes: ShowtimeType[] = value.filter(
+      (showtime) => showtime.play_id === playId
+    );
+
+    filteredShowtimes.forEach(async (show) => {
+      await fetch(`${API_URL}/id/${show.id}`, {
+        method: "DELETE",
+      });
+    });
+
+    return true
   } catch (error) {
     console.error("Sample error:", error);
     throw error;

@@ -13,7 +13,7 @@ const ShowtimeDelete: React.FC<ShowtimeDeleteProps> = ({ id }) => {
     const fetchShowtime = async () => {
       try {
         const data = await deleteShowtimeByID(id);
-        setMessage(data);
+        setMessage(`${data}`);
       } catch (error) {
         setMessage(`No showtime was found with given ID ${error}`);
       } finally {
