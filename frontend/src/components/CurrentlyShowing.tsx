@@ -6,10 +6,14 @@ import DisplayPoster from "./DisplayPoster";
 import { InvertedTicketButton } from "./TicketButton";
 import { getSponsorById } from "../api/sponsor-api/SponsorsService";
 import { SponsorType } from "../../types/sponsors";
+import Accordion from "./Accordion";
+import { ShowtimeType } from "../../types/showtimes";
+import { getAllShowtimesByPlayID } from "../api/showtime-api/showtimes";
 
 const CurrentlyShowing = () => {
   const [play, setPlay] = useState<PlayType>();
   const [sponsor, setSponsor] = useState<SponsorType>();
+  const [showtimes, setShowtimes] = useState<ShowtimeType[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -24,11 +28,37 @@ const CurrentlyShowing = () => {
     day: "numeric",
   };
 
+  const accordionItems = [
+    {
+      title: "Showtimes",
+      content: (
+        <div>
+          {showtimes.map((showtime) => (
+            <p
+              key={showtime.id}
+              className=" text-base sm:text-sm md:text-lg"
+            >
+              {new Date(showtime.play_date).toLocaleDateString(
+                "en-US",
+                optionsWithoutYear
+              )}{" "}
+              at {showtime.start_time}
+            </p>
+          ))}
+        </div>
+      ),
+    },
+  ];
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const result = await getPlayByDate();
         setPlay(result.plays);
+        if (result.plays) {
+          const showtimes = await getAllShowtimesByPlayID(result.plays.id);
+          setShowtimes(showtimes);
+        }
         setLoading(false);
       } catch (err) {
         setError(`Failed to load play ${err}`);
@@ -105,6 +135,7 @@ const CurrentlyShowing = () => {
               <span className="flex flex-col sm:text-xl md:text-xl xl:text-[1.7rem] text-xl text-blackolive">
                 {startDate} - {end_date}
               </span>
+              {showtimes.length > 0 && <Accordion items={accordionItems} />}
 
               <div className="flex sm:justify-start justify-center pt-4">
                 <InvertedTicketButton />
