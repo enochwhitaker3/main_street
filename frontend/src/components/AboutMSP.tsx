@@ -10,7 +10,7 @@ const AboutMSP = () => {
       <div className="sm:grid grid-cols-2 2xl:gap-x-28 xl:gap-x-24 lg:gap-x-16 md:gap-x-12 sm:gap-x-8">
         <div className="p-10 z-20 sm:pt-10 w-full h-full flex justify-end">
           <img
-            className="z-20 rounded-lg shadow-xl 2xl:w-[30rem] 2xl:h-[30rem] xl:w-96 xl:h-96 lg:w-80 lg:h-80 md:w-72 md:h-72 sm:w-60 sm:h-60"
+            className="z-10 rounded-lg shadow-xl 2xl:w-[30rem] 2xl:h-[30rem] xl:w-96 xl:h-96 lg:w-80 lg:h-80 md:w-72 md:h-72 sm:w-60 sm:h-60"
             src={msp}
             alt="MST Logo"
           />
