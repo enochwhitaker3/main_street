@@ -1,7 +1,5 @@
 import React from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import mstPicture from "../images/mst1.png";
 import mstPicture2 from "../images/mst2.png";
 import mstPicture3 from "../images/mst3.png";
