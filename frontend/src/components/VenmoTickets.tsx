@@ -1,5 +1,5 @@
 import React from "react";
-import venmoLogo from "../images/enoch_venmo.png";
+import venmoLogo from "../images/venmo.svg";
 
 const CurrentlyShowing = () => {
   return (

@@ -10,6 +10,12 @@
         "route": "/gettickets"
       },
       {
+        "route": "/aboutus"
+      },
+      {
+        "route": "/contactus"
+      },
+      {
         "route": "/adminlogin"
       },
       {

@@ -14,6 +14,8 @@ import AdminSponsors from "./admin-pages/Sponsors/AdminSponsors";
 import AdminSponsorAdd from "./admin-pages/Sponsors/AdminSponsorAdd";
 import AdminSponsorEdit from "./admin-pages/Sponsors/AdminSponsorEdit";
 import AdminSponsorDelete from "./admin-pages/Sponsors/AdminSponsorDelete";
+import AboutUs from "./pages/AboutUs";
+import ContactUs from "./pages/ContactUs";
 
 const PrivateRoutes = () => {
   const { authenticated } = useContext(AuthContext);
@@ -29,6 +31,8 @@ const Routes = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/currentlyshowing" element={<CurrentlyShowingPage />} />
       <Route path="/gettickets" element={<BuyTickets />} />
+      <Route path="/aboutus" element={<AboutUs />} />
+      <Route path="/contactus" element={<ContactUs />} />
       <Route path="/adminlogin" element={<AdminLogin />} />
       <Route element={<PrivateRoutes />}>
         <Route path="/admin" element={<AdminHome />} />

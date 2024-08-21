@@ -54,7 +54,7 @@ const Navbar = () => {
               : `link-underline link-underline-sky`
           } text-creame cursor-pointer`}
         >
-          Contact Us
+          <Link to="/contactus">Contact Us</Link>
         </div>
       </nav>
       <div className="block sm:hidden">
