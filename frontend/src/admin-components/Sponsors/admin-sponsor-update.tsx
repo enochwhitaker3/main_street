@@ -107,15 +107,15 @@ const AdminSponsorUpdate = () => {
       </h1>
       <div className="h-full mt-5 w-full">
         <div className="flex flex-col items-center h-full justify-center px-6 py-8 mx-auto lg:py-0">
-          <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-2xl xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+          <div className="w-full rounded-lg shadow border md:mt-0 sm:max-w-2xl xl:p-0 bg-gray-800 border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-creame">
+              <h1 className="text-xl font-bold leading-tight tracking-tight text-creame md:text-2xl">
                 Update Sponsor
               </h1>
               <select
                 value={selectedSponsor}
                 onChange={handleSponsorChange}
-                className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className=" border text-creame rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500"
               >
                 <option value="">Select Sponsor</option>
                 {sponsors.map((sponsor) => (
@@ -136,7 +136,7 @@ const AdminSponsorUpdate = () => {
                     <input
                       placeholder={selectedSponsorObject?.sponsor_name}
                       onChange={handleNameChange}
-                      className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className=" border text-creame rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
                   <div>
@@ -149,7 +149,7 @@ const AdminSponsorUpdate = () => {
                         "Enter Address (can be empty)"
                       }
                       onChange={handleAddressChange}
-                      className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className=" border text-creame rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
 
@@ -163,7 +163,7 @@ const AdminSponsorUpdate = () => {
                         "Enter Phone Number (can be empty)"
                       }
                       onChange={handlePhoneNumberChange}
-                      className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className=" border text-creame rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
 
