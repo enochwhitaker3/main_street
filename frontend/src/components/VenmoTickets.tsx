@@ -23,15 +23,15 @@ const CurrentlyShowing = () => {
         </div>
 
         <h1 className="xl:pr-40 md:pr-20 sm:pr-20 sm:text-lg md:text-xl lg:text-2xl text-lg mb-10 sm:pt-10 text-blackolive sm:text-start justify-center text-center">
-          <span className="underline">NOTICE</span>
+          <span className="underline block mb-2">NOTICE</span>
           <span className="block mb-8">
-            At the time we cannot accept online transcations of credit/debit
-            cards, if you wish to pay online please use the link on the left.
-            Tickets are also always available to purchase in person.
+            At this time, we cannot accept online transactions for credit/debit
+            cards. If you wish to pay online, please use the link on the left.
+            Tickets are also always available for purchase in person.
           </span>
           <span className="block underline">
-            Each ticket is 10 Dollars, make sure to include the name of the play house
-            wish to see & your name in the message. 
+            Each ticket is $10. Please make sure to include the name of the play
+            you wish to see and your name in the message.
           </span>
         </h1>
       </div>

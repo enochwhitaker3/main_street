@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import mstLogo from "../images/transparent_mst.png";
 import { HiOutlineMenu } from "react-icons/hi";
 import { Link, useLocation } from "react-router-dom";
@@ -9,9 +9,28 @@ const Navbar = () => {
   const location = useLocation();
   const pathname = location.pathname;
 
+  const divRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (divRef.current && !divRef.current.contains(event.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="w-full flex justify-between p-4 pr-8  pl-8   items-center z-20 bg-salmon">
-      <Link to="/">
+    <div
+      className="w-full flex justify-between p-4 pr-8  pl-8   items-center z-20 bg-salmon"
+      ref={divRef}
+    >
+      <Link to="/" onClick={() => setMenuOpen(false)}>
         <img
           className="h-16 w-16 z-20 cursor-pointer"
           src={mstLogo}
@@ -27,7 +46,7 @@ const Navbar = () => {
               : `link-underline link-underline-teal`
           } text-creame cursor-pointer`}
         >
-          <Link to="/currentlyshowing">Currently Showing</Link>
+          <Link to="/currentlyshowing">Currently Showing </Link>
         </div>
         <div
           className={`${
@@ -79,7 +98,9 @@ const Navbar = () => {
                   : `link-underline link-underline-teal`
               } text-creame cursor-pointer`}
             >
-              <Link to="/currentlyshowing">Currently Showing</Link>
+              <Link to="/currentlyshowing" onClick={() => setMenuOpen(false)}>
+                Currently Showing
+              </Link>
             </div>
             <div
               className={`${
@@ -88,7 +109,9 @@ const Navbar = () => {
                   : `link-underline link-underline-sky`
               } text-creame cursor-pointer`}
             >
-              <Link to="/gettickets">Tickets</Link>
+              <Link to="/gettickets" onClick={() => setMenuOpen(false)}>
+                Tickets
+              </Link>
             </div>
             <div
               className={`${
@@ -97,7 +120,9 @@ const Navbar = () => {
                   : `link-underline link-underline-teal`
               } text-creame cursor-pointer`}
             >
-              <Link to="/aboutus">About Us</Link>
+              <Link to="/aboutus" onClick={() => setMenuOpen(false)}>
+                About Us
+              </Link>
             </div>
             <div
               className={`${
@@ -106,7 +131,9 @@ const Navbar = () => {
                   : `link-underline link-underline-sky`
               } text-creame cursor-pointer`}
             >
-              <Link to="/contactus">Contact Us</Link>
+              <Link to="/contactus" onClick={() => setMenuOpen(false)}>
+                Contact Us
+              </Link>
             </div>
             <div
               className={`${
