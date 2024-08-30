@@ -38,6 +38,7 @@ jobs:
           REACT_APP_SPONSORS_ENDPOINT: ${{secrets.SPONSOR_ENDPOINT}}
           REACT_APP_SHOWTIMES_ENDPOINT: ${{secrets.SHOWTIME_ENDPOINT}}
           REACT_APP_CAST_ENDPOINT: ${{secrets.CAST_ENDPOINT}}
+          REACT_APP_DATABASE_CONNECTION_STRING: ${{secrets.DATABASE_CONNECTION_STRING}}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
