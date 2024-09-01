@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { PlayType } from "../../types/plays";
 import { TicketButton } from "./TicketButton";
 import { Link } from "react-router-dom";
-import defaultPoster from "../images/default-poster.svg"
+import defaultPoster from "../images/default-poster.png"
 
 interface PosterProps {
   play: PlayType;
@@ -30,16 +30,19 @@ const Poster: React.FC<PosterProps> = ({ play }) => {
     };
   }, []);
 
+
   const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "long",
     day: "numeric",
+    timeZone: "UTC"
   };
 
   const startDate = new Date(play.start_date).toLocaleDateString(
     "en-US",
     options
   );
+
   const endDate = new Date(play.end_date).toLocaleDateString("en-US", options);
 
   const handleMouseEnter = () => {
@@ -53,6 +56,8 @@ const Poster: React.FC<PosterProps> = ({ play }) => {
       setIsHovered(false);
     }
   };
+
+console.log(play.start_date)
 
   return (
     <div className="w-full">

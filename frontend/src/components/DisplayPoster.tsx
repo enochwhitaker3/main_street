@@ -1,6 +1,6 @@
 import React from "react";
 import { PlayType } from "../../types/plays";
-import defaultPoster from "../images/default-poster.svg"
+import defaultPoster from "../images/default-poster.png"
 
 interface PosterProps {
   play: PlayType;

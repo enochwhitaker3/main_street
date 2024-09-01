@@ -21,11 +21,13 @@ const CurrentlyShowing = () => {
     year: "numeric",
     month: "long",
     day: "numeric",
+    timeZone: "UTC",
   };
 
   const optionsWithoutYear: Intl.DateTimeFormatOptions = {
     month: "long",
     day: "numeric",
+    timeZone: "UTC",
   };
 
   const accordionItems = [
@@ -34,10 +36,7 @@ const CurrentlyShowing = () => {
       content: (
         <div>
           {showtimes.map((showtime) => (
-            <p
-              key={showtime.id}
-              className=" text-base sm:text-sm md:text-lg"
-            >
+            <p key={showtime.id} className=" text-base sm:text-sm md:text-lg">
               {new Date(showtime.play_date).toLocaleDateString(
                 "en-US",
                 optionsWithoutYear
