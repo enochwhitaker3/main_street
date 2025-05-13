@@ -20,7 +20,12 @@
     "host": {
       "mode": "production",
       "cors": {
-        "origins": ["http://localhost:4280"],
+        "origins": [
+          "http://localhost:4280",
+          "http://localhost:4200",
+          "http://localhost:3000",
+          "https://mainstreetplayhouse.org"
+        ],
         "allow-credentials": false
       },
       "authentication": {

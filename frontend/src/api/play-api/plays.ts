@@ -13,6 +13,7 @@ export const getAllPlays = async (): Promise<PlayType[]> => {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const returned_plays: ApiPlayResponse = await response.json();
+    console.log("Returned plays:", returned_plays);
 
     const mappedData: PlayType[] = returned_plays.value.map((item) => ({
       id: item.id,
