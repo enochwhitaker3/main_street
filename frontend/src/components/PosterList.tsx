@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { PlayType } from "../../types/plays";
 import { TicketButton } from "./TicketButton";
 import { Link } from "react-router-dom";
-import defaultPoster from "../images/default-poster.png"
+import defaultPoster from "../images/default-poster.png";
 
 interface PosterProps {
   play: PlayType;
@@ -30,12 +30,11 @@ const Poster: React.FC<PosterProps> = ({ play }) => {
     };
   }, []);
 
-
   const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "long",
     day: "numeric",
-    timeZone: "UTC"
+    timeZone: "UTC",
   };
 
   const startDate = new Date(play.start_date).toLocaleDateString(
@@ -57,8 +56,6 @@ const Poster: React.FC<PosterProps> = ({ play }) => {
     }
   };
 
-console.log(play.start_date)
-
   return (
     <div className="w-full">
       <div className="m-8 w-full px-4 mx-auto">
@@ -72,27 +69,29 @@ console.log(play.start_date)
             src={play.poster == "" || null ? defaultPoster : play.poster}
             alt="movie poster"
             className="rounded-lg 2xl:h-[30rem] xl:h-[25rem] lg:h-[22rem] md:h-[18rem] sm:h-[14rem] h-[20rem] w-full object-cover"
-          />
-          <div
-            className={`absolute bottom-0 left-0 right-0 h-3/4 bg-blackolive transform ${
-              isOverlayVisible || isHovered
-                ? "translate-y-0"
-                : "translate-y-full"
-            } transition-transform duration-700 ease-in-out flex flex-col items-center justify-center`}
           >
-            <ul className="text-creame px-4 lg:text-lg md:text-sm sm:text-xs">
-              <li>{play.title}</li>
-              <li> Directed By: {play.director}</li>
-              <li>
-                From {startDate} to {endDate}
-              </li>
-              <li className="mt-4">
-                <Link to="/gettickets">
-                  <TicketButton />
-                </Link>
-              </li>
-            </ul>
-          </div>
+            {" "}
+            <div
+              className={`absolute bottom-0 left-0 right-0 h-3/4 bg-blackolive transform ${
+                isOverlayVisible || isHovered
+                  ? "translate-y-0"
+                  : "translate-y-full"
+              } transition-transform duration-700 ease-in-out flex flex-col items-center justify-center`}
+            >
+              <ul className="text-creame px-4 lg:text-lg md:text-sm sm:text-xs">
+                <li>{play.title}</li>
+                <li> Directed By: {play.director}</li>
+                <li>
+                  From {startDate} to {endDate}
+                </li>
+                <li className="mt-4">
+                  <Link to="/gettickets">
+                    <TicketButton />
+                  </Link>
+                </li>
+              </ul>
+            </div>{" "}
+          </img>
         </div>
       </div>
     </div>

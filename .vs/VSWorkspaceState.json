@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\frontend",
+    "\\frontend\\src",
+    "\\frontend\\src\\api",
+    "\\frontend\\src\\api\\play-api",
+    "\\swa-db-connections"
+  ],
+  "SelectedNode": "\\frontend\\src\\api\\play-api\\plays.ts",
+  "PreviewInSolutionExplorer": false
+}
