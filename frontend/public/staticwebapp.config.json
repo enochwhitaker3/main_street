@@ -1,50 +1,55 @@
 {
-    "navigationFallback": {
-      "rewrite": "/index.html"
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  },
+  "routes": [
+    {
+      "route": "/currentlyshowing"
     },
-    "routes": [
-      {
-        "route": "/currentlyshowing"
-      },
-      {
-        "route": "/gettickets"
-      },
-      {
-        "route": "/aboutus"
-      },
-      {
-        "route": "/contactus"
-      },
-      {
-        "route": "/adminlogin"
-      },
-      {
-        "route": "/admin"
-      },
-      {
-        "route": "/adminplays"
-      },
-      {
-        "route": "/adminplaysadd"
-      },
-      {
-        "route": "/adminplaysedit"
-      },
-      {
-        "route": "/adminplaysdelete"
-      },
-      {
-        "route": "/adminsponsors"
-      },
-      {
-        "route": "/adminsponsorsadd"
-      },
-      {
-        "route": "/adminsponsorsedit"
-      },
-      {
-        "route": "/adminsponsorsdelete"
+    {
+      "route": "/gettickets"
+    },
+    {
+      "route": "/aboutus"
+    },
+    {
+      "route": "/contactus"
+    },
+    {
+      "route": "/adminlogin"
+    },
+    {
+      "route": "/admin"
+    },
+    {
+      "route": "/adminplays"
+    },
+    {
+      "route": "/adminplaysadd"
+    },
+    {
+      "route": "/adminplaysedit"
+    },
+    {
+      "route": "/adminplaysdelete"
+    },
+    {
+      "route": "/adminsponsors"
+    },
+    {
+      "route": "/adminsponsorsadd"
+    },
+    {
+      "route": "/adminsponsorsedit"
+    },
+    {
+      "route": "/adminsponsorsdelete"
+    },
+    {
+      "globalHeaders": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, OPTIONS"
       }
-    ]
-  }
-  
+    }
+  ]
+}
